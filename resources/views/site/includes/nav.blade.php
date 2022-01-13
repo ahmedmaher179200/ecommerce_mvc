@@ -1,3 +1,7 @@
+<body class="animsition">
+	
+	<!-- Header -->
+	<header class="header-v4">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
@@ -27,7 +31,7 @@
 				</div>
 			</div>
 
-			<div class="wrap-menu-desktop">
+			<div class="wrap-menu-desktop how-shadow1">
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
@@ -38,17 +42,13 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu">
-								<a href="index.html">Home</a>
-								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
-								</ul>
+							<li>
+								<a href="{{url('/')}}">Home</a>
+
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="{{url('/shop')}}">Shop</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
@@ -79,7 +79,7 @@
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</a>
 					</div>
@@ -87,11 +87,11 @@
 			</div>	
 		</div>
 
-        <!-- Header Mobile -->
+		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.html"><img src="{{url('public/site/icons/logo-01.png')}}" alt="IMG-LOGO"></a>
+				<a href="{{url('/')}}"><img src="{{url('public/site/icons/logo-01.png')}}" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -150,9 +150,9 @@
 
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.html">Home</a>
+					<a href="{{url('/')}}">Home</a>
 					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
+						<li><a href="{{url('/')}}">Homepage 1</a></li>
 						<li><a href="home-02.html">Homepage 2</a></li>
 						<li><a href="home-03.html">Homepage 3</a></li>
 					</ul>

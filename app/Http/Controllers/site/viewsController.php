@@ -17,12 +17,24 @@ class viewsController extends Controller
 
     public function productDetails($id){
         $product = Product::active()->find($id);
+
+        $related_products = Product::active()
+                                    ->where('sub_categoriesId', $product->sub_categoriesId)
+                                    ->where('id', '!=', $product->id)
+                                    ->limit(8)
+                                    ->get();
+
         return view('site.productDetails')->with([
-            'product' => $product,
+            'product'           => $product,
+            'related_products'  => $related_products,
         ]);
     }
 
     public function shop(){
-        return view('site.shop');
+        $products = Product::active()->get();
+
+        return view('site.shop')->with([
+            'products' => $products,
+        ]);
     }
 }
