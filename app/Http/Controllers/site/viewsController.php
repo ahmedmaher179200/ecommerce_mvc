@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class viewsController extends Controller
 {
     public function homeView(){
-        $products = Product::active()->get();
+        $products = Product::active()->limit(10)->get();
         return view('site.home')->with([
             'products' => $products,
         ]);
@@ -20,5 +20,9 @@ class viewsController extends Controller
         return view('site.productDetails')->with([
             'product' => $product,
         ]);
+    }
+
+    public function shop(){
+        return view('site.shop');
     }
 }
