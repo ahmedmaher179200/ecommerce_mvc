@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\site\viewsController@homeView');
+Route::get('/productDetails/{id}', 'App\Http\Controllers\site\viewsController@productDetails');
