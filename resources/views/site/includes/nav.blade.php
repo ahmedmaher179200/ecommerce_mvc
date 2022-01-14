@@ -16,9 +16,11 @@
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
-						</a>
+						@if (Auth::guard('web')->check())
+							<a href="{{url('logout')}}" class="flex-c-m trans-04 p-lr-25">logout</a>
+						@else
+							<a href="{{url('login')}}" class="flex-c-m trans-04 p-lr-25">login</a>
+						@endif
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							EN

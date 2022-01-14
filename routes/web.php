@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\site\viewsController@homeView');
-Route::get('/productDetails/{id}', 'App\Http\Controllers\site\viewsController@productDetails');
-Route::get('/shop', 'App\Http\Controllers\site\viewsController@shop');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+        Route::get('/', 'App\Http\Controllers\site\viewsController@homeView');
+        Route::get('/productDetails/{id}', 'App\Http\Controllers\site\viewsController@productDetails');
+        Route::get('/shop', 'App\Http\Controllers\site\viewsController@shop');
+
+        Route::get('/login', 'App\Http\Controllers\site\authentication\auth@loginView')->name('login')->middleware('guest:web');
+        Route::post('/login', 'App\Http\Controllers\site\authentication\auth@login')->middleware('guest:web');
+
+        Route::get('/logout', 'App\Http\Controllers\site\authentication\auth@logout')->middleware('auth:web');
+
+        Route::get('/love/{id}', 'App\Http\Controllers\site\products@love')->middleware('auth:web');
+
+    });
