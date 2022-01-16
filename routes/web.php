@@ -29,6 +29,6 @@ Route::group(
 
         Route::get('/logout', 'App\Http\Controllers\site\authentication\auth@logout')->middleware('auth:web');
 
-        Route::get('/love/{id}', 'App\Http\Controllers\site\products@love')->middleware('auth:web');
+        Route::post('/love', 'App\Http\Controllers\site\products@love')->middleware('auth:web');
 
     });

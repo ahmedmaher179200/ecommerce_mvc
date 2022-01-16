@@ -230,5 +230,8 @@
 	<!--===============================================================================================-->
 	<script src="{{url('public/site/js/main.js')}}"></script>
 
+
+	@include('site.includes.ajax')
+
 </body>
 </html>

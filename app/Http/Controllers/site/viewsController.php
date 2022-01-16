@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Love;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -16,8 +17,8 @@ class viewsController extends Controller
         ]);
     }
 
-    public function productDetails($id){
-        $product = Product::active()->find($id);
+    public function productDetails($product_id){
+        $product = Product::active()->find($product_id);
 
         $related_products = Product::active()
                                     ->where('sub_categoriesId', $product->sub_categoriesId)
