@@ -16,7 +16,7 @@ class auth extends Controller
         $credentials = ['name' => $request->username, 'password' => $request->password];
         //login
         if (authentication::guard('web')->attempt($credentials)) {
-            return redirect('/');
+            return redirect()->back();
         }
 
         return redirect()->back();

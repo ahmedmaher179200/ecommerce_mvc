@@ -3333,3 +3333,7 @@ input.num-product::-webkit-inner-spin-button {
 .active{
   color: #717fe0;
 }
+.ajax_love{
+  font-size: 25px;
+  cursor: pointer;
+}

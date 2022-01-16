@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
-class Rating extends Model
+class Review extends Model
 {
-    use HasFactory, Notifiable;
-    protected $table = 'ratings';
+    use HasFactory;
+    protected $table = 'reviews';
 
     protected $guarded = [];
 
@@ -19,7 +18,6 @@ class Rating extends Model
         'user_id'       => 'integer',
         'rating'        => 'integer',
     ];
-
     //relations
     public function Product(){
         return $this->belongsTo(Product::class,'product_id');

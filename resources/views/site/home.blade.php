@@ -510,10 +510,21 @@
                                 </div>
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
-                                    <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="{{url('public/site/icons/icon-heart-01.png')}}" alt="ICON">
-                                        <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{url('public/site/icons/icon-heart-02.png')}}" alt="ICON">
-                                    </a>
+									@if (Auth::guard('web')->check())
+										<?php 
+											$love  =  App\Models\Love::where('product_id', $product->id)
+																		->where('user_id', auth('web')->user()->id)
+																		->first();
+										?>
+
+										<div class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail {{'ajax_love' . $product->id}} ajax_love @if (!empty($love)) active @endif" data-product_id="{{$product->id}}">
+											<i class="zmdi zmdi-favorite"></i>
+										</div>
+									@else
+										<a href="{{url('login')}}" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail">
+											<i class="zmdi zmdi-favorite"></i>
+										</a>
+									@endif
                                 </div>
                             </div>
                         </div>

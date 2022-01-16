@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Love;
 use App\Models\Product;
+use App\Models\Review;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,6 @@ class products extends Controller
         //** user should log in
 
         $product = Product::active()->find($request->product_id);
-
 
         //if product = null
         if($product == null)
@@ -41,16 +41,21 @@ class products extends Controller
         return "good";
     }
 
-    public function comment(Request $request){
+    public function addReview(Request $request){
         //**user should log in
 
-        Comment::create([
-            'product_id'    => $request->content->product_id,
+        $review =  Review::create([
+            'product_id'    => $request->product_id,
             'user_id'       => auth('web')->user()->id,
             'content'       => $request->content,
+            'rating'        => $request->rating,
         ]);
 
-        return true;
+        return $review;
+    }
+
+    public function test(Request $request){
+        return Review::first()->User->image->image;
     }
 
     //helper function
