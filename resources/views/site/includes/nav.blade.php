@@ -81,9 +81,14 @@
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
-						<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>
+						@if (auth::guard('web')->check())
+							<?php 
+								$love_count = App\Models\Love::where('user_id', auth('web')->user()->id)->count();
+							?>
+							<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti love_count" data-notify="{{$love_count}}">
+								<i class="zmdi zmdi-favorite-outline"></i>
+							</a>
+						@endif
 					</div>
 				</nav>
 			</div>	

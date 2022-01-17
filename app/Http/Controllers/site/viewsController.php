@@ -27,8 +27,9 @@ class viewsController extends Controller
             return redirect('');
 
         //sellect product reviews
-        $reviews = Review::where('product_id', $product_id)->get();
+        $reviews = Review::where('product_id', $product_id)->paginate(4);
 
+        //get reviews count
         $reviews_count = Review::where('product_id', $product_id)->count();
 
 
