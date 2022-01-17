@@ -55,4 +55,8 @@ class viewsController extends Controller
             'products' => $products,
         ]);
     }
+
+    public function cartView(){
+        return view('site.cart');
+    }
 }

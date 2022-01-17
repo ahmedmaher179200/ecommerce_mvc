@@ -60,4 +60,117 @@
         }
         });
     })
+
+    //add to cart
+    $(document).on("click",".add-to-cart", function(){
+        var product_id = $(this).attr("data-product_id");
+        var quantity   = $('.quantity').val();
+        var color      = $('.color').val();
+        var size       = $('.size').val();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        });
+        $.ajax({
+            async: false,
+            method: "post",
+            url: "{{url(LaravelLocalization::getCurrentLocale())}}" + "/cart/add",
+            data: {
+                product_id  : product_id,
+                quantity    : quantity,
+                color       : color,
+                size        : size,
+            },
+        
+        success: function (data) {
+            if(data == true){
+                //..
+            }
+        },
+        error: function (data) {
+            alert('false');
+        }
+        });
+    })
+
+    //delete to cart
+    $(document).on("click",".remove-from-cart", function(){
+        var product_id = $(this).attr("data-product_id");
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        });
+        $.ajax({
+            async: false,
+            method: "post",
+            url: "{{url(LaravelLocalization::getCurrentLocale())}}" + "/cart/remove",
+            data: {
+                product_id  : product_id,
+            },
+        
+        success: function (data) {
+            
+        },
+        error: function (data) {
+            alert('false');
+        }
+        });
+    })
+
+    //increment
+    $(document).on("click",".increment", function(){
+        var product_id = $(this).attr("data-product_id");
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        });
+        $.ajax({
+            async: false,
+            method: "post",
+            url: "{{url(LaravelLocalization::getCurrentLocale())}}" + "/cart/increment",
+            data: {
+                product_id  : product_id,
+            },
+        
+        success: function (data) {
+            
+        },
+        error: function (data) {
+            alert('false');
+        }
+        });
+    })
+
+    //decrement
+    $(document).on("click",".decrement", function(){
+        var product_id = $(this).attr("data-product_id");
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        });
+        $.ajax({
+            async: false,
+            method: "post",
+            url: "{{url(LaravelLocalization::getCurrentLocale())}}" + "/cart/decrement",
+            data: {
+                product_id  : product_id,
+            },
+        
+        success: function (data) {
+            
+        },
+        error: function (data) {
+            alert('false');
+        }
+        });
+    })
+
 </script>

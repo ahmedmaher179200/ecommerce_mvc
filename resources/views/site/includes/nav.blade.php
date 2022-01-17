@@ -54,7 +54,7 @@
 							</li>
 
 							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.html">Features</a>
+								<a href="{{url('cart')}}">Features</a>
 							</li>
 
 							<li>
@@ -77,7 +77,15 @@
 							<i class="zmdi zmdi-search"></i>
 						</div>
 
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+						<?php 
+							if(session()->has('cartItems')){
+								$cartItems_count = count(session()->get('cartItems'));
+							} else {
+								$cartItems_count = 0;
+							}
+						?>
+
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="{{$cartItems_count}}">
 							<i class="zmdi zmdi-shopping-cart"></i>
 						</div>
 
@@ -107,13 +115,15 @@
 					<i class="zmdi zmdi-search"></i>
 				</div>
 
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="{{$cartItems_count}}">
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
 
-				<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-					<i class="zmdi zmdi-favorite-outline"></i>
-				</a>
+				@if (auth::guard('web')->check())
+					<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="{{$love_count}}">
+						<i class="zmdi zmdi-favorite-outline"></i>
+					</a>
+				@endif
 			</div>
 
 			<!-- Button show menu -->
@@ -173,7 +183,7 @@
 				</li>
 
 				<li>
-					<a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+					<a href="{{url('cart')}}" class="label1 rs1" data-label1="hot">Features</a>
 				</li>
 
 				<li>

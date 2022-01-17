@@ -7,7 +7,6 @@ use App\Models\Comment;
 use App\Models\Love;
 use App\Models\Product;
 use App\Models\Review;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 
 class products extends Controller
@@ -66,10 +65,6 @@ class products extends Controller
                     'code' => $code,
                     'reviews_count' => $reviews_count,
             ];
-    }
-
-    public function test(Request $request){
-        return Review::first()->User->image->image;
     }
 
     //** helper function **//

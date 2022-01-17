@@ -32,6 +32,13 @@ Route::group(
         Route::post('/love', 'App\Http\Controllers\site\products@love')->middleware('auth:web');
         Route::post('/addReview', 'App\Http\Controllers\site\products@addReview')->middleware('auth:web');
 
-        Route::get('/test', 'App\Http\Controllers\site\products@test')->middleware('auth:web');
+        Route::get('/cart', 'App\Http\Controllers\site\viewsController@cartView');
+        Route::post('/cart/add', 'App\Http\Controllers\site\cart@add')->middleware('auth:web');
+        Route::post('/cart/remove', 'App\Http\Controllers\site\cart@remove')->middleware('auth:web');
+        Route::post('/cart/increment', 'App\Http\Controllers\site\cart@increment')->middleware('auth:web');
+        Route::post('/cart/decrement', 'App\Http\Controllers\site\cart@decrement')->middleware('auth:web');
+
+
+        Route::get('/test', 'App\Http\Controllers\site\cart@test')->middleware('auth:web');
 
     });
