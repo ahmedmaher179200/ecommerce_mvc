@@ -13,9 +13,9 @@
         </div>
         @if (session()->has('cartItems'))
             <div class="header-cart-content flex-w js-pscroll">
-                <ul class="header-cart-wrapitem w-full">
+                <ul class="header-cart-wrapitem w-full nav-cart-box">
                     @foreach (session()->get('cartItems') as $cartItem)
-                        <li class="header-cart-item flex-w flex-t m-b-12">
+                        <li class="header-cart-item flex-w flex-t m-b-12 {{'product-' . $cartItem['id']}}">
                             <div class="header-cart-item-img remove-from-cart" data-product_id="{{$cartItem['id']}}">
                                 <img src="{{url('public/uploads/products/' . $cartItem['iamge'])}}" alt="IMG">
                             </div>
@@ -26,7 +26,7 @@
                                 </a>
 
                                 <span class="header-cart-item-info">
-                                    {{$cartItem['quantity']}} x ${{$cartItem['price'] - $cartItem['discount']['value']}}
+                                    <span class="{{'quantity-' . $cartItem['id']}}">{{$cartItem['quantity']}}</span> x ${{$cartItem['price'] - $cartItem['discount']['value']}}
                                 </span>
                             </div>
                         </li>
@@ -40,7 +40,7 @@
                         }, session()->get('cartItems')));
                     ?>
                     <div class="header-cart-total w-full p-tb-40">
-                        Total: ${{$totle_price}}
+                        Total: $<span class="totle_price">{{$totle_price}}</span>
                     </div>
 
                     <div class="header-cart-buttons flex-w w-full">

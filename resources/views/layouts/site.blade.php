@@ -2,7 +2,7 @@
 
 @include('site.includes.nav')
 
-@include('site.includes.cart')
+@include('site.includes.navCart')
 
 @yield('content')
 

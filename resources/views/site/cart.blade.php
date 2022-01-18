@@ -37,7 +37,7 @@
 
                                 @if (session()->has('cartItems'))
                                     @foreach (session()->get('cartItems') as $cartItem)
-                                        <tr class="table_row">
+                                        <tr class="table_row {{'product-' . $cartItem['id']}}">
                                             <td class="column-1">
                                                 <div class="how-itemcart1 remove-from-cart" data-product_id="{{$cartItem['id']}}">
                                                     <img src="{{url('public/uploads/products/' . $cartItem['iamge'])}}" alt="IMG">
@@ -58,7 +58,7 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="column-5">$ {{$cartItem['quantity'] * ($cartItem['price'] - $cartItem['discount']['value'])}}</td>
+                                            <td class="column-5">$ <span class="{{'total-item-price-' . $cartItem['id']}}">{{$cartItem['quantity'] * ($cartItem['price'] - $cartItem['discount']['value'])}}</span></td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -96,8 +96,17 @@
 							</div>
 
 							<div class="size-209">
+								@if (session()->has('cartItems'))
+									<?php 
+										$totle_price = array_sum(array_map(function($item) { 
+											return ($item['price'] - $item['discount']['value']) * $item['quantity']; 
+										}, session()->get('cartItems')));
+									?>
+								@else
+									<?php $totle_price = 0; ?>
+								@endif
 								<span class="mtext-110 cl2">
-									$79.65
+									$<span class="totle_price">{{$totle_price}}<span>
 								</span>
 							</div>
 						</div>
