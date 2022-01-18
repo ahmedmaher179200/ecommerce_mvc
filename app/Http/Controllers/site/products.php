@@ -67,6 +67,26 @@ class products extends Controller
             ];
     }
 
+    public function search(Request $request){
+        $products = Product::active()
+                                ->where('name', 'like', '%'. $request->text .'%')
+                                ->get();
+        return $products;
+    }
+
+    public function filter(Request $request){
+        // $request->price = 50;
+        $products =  Product::active()->where('id', '>', 1);
+        $products->get();
+
+        if($request->price != null){
+            // $products->where('price', $request->price);
+        }
+        $products->get();
+
+        return $products;
+    }
+
     //** helper function **//
 
     //review html for (ajax)

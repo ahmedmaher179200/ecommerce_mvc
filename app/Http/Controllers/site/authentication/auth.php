@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\site\authentication;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth as authentication;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 
 class auth extends Controller
 {
@@ -26,5 +30,30 @@ class auth extends Controller
         authentication::guard('web')->logout();
 
         return redirect('/login');
+    }
+
+    public function signUpView(){
+        return view('site.signUp');
+    }
+
+    public function signUp(Request $request){
+            $validator = Validator::make($request->all(), [
+                'username'         => 'required|string',
+                'email'            => 'required|string|email|max:255|unique:users',
+                'password'         => 'required|string|min:6',
+                'confirm_password' => 'required|string|same:password',
+            ]);
+
+            if($validator->fails()){
+                return redirect()->back();
+            }
+
+            User::create([
+            'name'          => $request->get('username'),
+            'email'             => $request->get('email'),
+            'password'          => Hash::make($request->get('password')),
+        ]);
+
+        return redirect('login');
     }
 }

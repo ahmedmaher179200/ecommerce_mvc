@@ -128,38 +128,7 @@ class cart extends Controller
         ];
     }
 
-    public function test(Request $request){
-        // session()->forget('cartItems.1');
-
-        // session()->push('cartItems',[
-        //     'id'        => 1, 
-        //     'quantity'  => 2,
-        //     'color'     => 'red',
-        //     'size'      => 'lg',
-        //     'price'     => 100,
-        //     'discount'  => [
-        //                         'percentage'  => 20,
-        //                         'value'       => 20,
-        //                 ],
-        //     'name'      => 'truwser',
-        //     'iamge'      => 'a1.jpg',
-
-        //  ]);
-        
-        // return array_sum(array_map(function($item) { 
-        //     return $item['price'] * $item['quantity']; 
-        // }, session()->get('cartItems')));
-
-        // foreach(session()->get('cartItems') as $key => $cartItem){
-        //     if($cartItem['id'] == 1)
-        //         echo $key;
-        // }
-
-        // session(['cartItems.0.quantity' => 10]);
-
-        return session()->get('cartItems');
-    }
-
+    //html
     public function nav_cart_html($request, $product){
         $nav_cart_html =    '<li class="header-cart-item flex-w flex-t m-b-12 product-'. $request->product_id .' ">
                                 <div class="header-cart-item-img remove-from-cart" data-product_id="' . $request->product_id. '">

@@ -46,15 +46,10 @@
 						<ul class="main-menu">
 							<li>
 								<a href="{{url('/')}}">Home</a>
-
 							</li>
 
 							<li>
 								<a href="{{url('/shop')}}">Shop</a>
-							</li>
-
-							<li class="label1" data-label1="hot">
-								<a href="{{url('cart')}}">Features</a>
 							</li>
 
 							<li>
@@ -180,10 +175,6 @@
 
 				<li>
 					<a href="product.html">Shop</a>
-				</li>
-
-				<li>
-					<a href="{{url('cart')}}" class="label1 rs1" data-label1="hot">Features</a>
 				</li>
 
 				<li>

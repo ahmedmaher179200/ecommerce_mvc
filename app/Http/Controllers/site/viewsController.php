@@ -59,4 +59,5 @@ class viewsController extends Controller
     public function cartView(){
         return view('site.cart');
     }
+
 }

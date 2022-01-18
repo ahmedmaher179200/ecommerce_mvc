@@ -26,6 +26,8 @@ Route::group(
 
         Route::get('/login', 'App\Http\Controllers\site\authentication\auth@loginView')->name('login')->middleware('guest:web');
         Route::post('/login', 'App\Http\Controllers\site\authentication\auth@login')->middleware('guest:web');
+        Route::get('/signUp', 'App\Http\Controllers\site\authentication\auth@signUpView')->name('login')->middleware('guest:web');
+        Route::post('/signUp', 'App\Http\Controllers\site\authentication\auth@signUp')->name('login')->middleware('guest:web');
 
         Route::get('/logout', 'App\Http\Controllers\site\authentication\auth@logout')->middleware('auth:web');
 
@@ -39,6 +41,6 @@ Route::group(
         Route::post('/cart/decrement', 'App\Http\Controllers\site\cart@decrement');
 
 
-        Route::get('/test', 'App\Http\Controllers\site\cart@test')->middleware('auth:web');
+        Route::get('/test', 'App\Http\Controllers\site\products@filter');
 
     });
