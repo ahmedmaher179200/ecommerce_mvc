@@ -12,7 +12,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 class viewsController extends Controller
 {
     public function homeView(){
-        $products = Product::active()->limit(10)->get();
+        $products = Product::active()
+                                ->orderBy('number_of_sell', 'desc')
+                                ->limit(10)->get();
+                                
         return view('site.home')->with([
             'products' => $products,
         ]);
@@ -48,8 +51,8 @@ class viewsController extends Controller
         ]);
     }
 
-    public function shop(){
-        $products = Product::active()->get();
+    public function shop(Request $request){
+        $products = products::ProductsFilter($request);
 
         return view('site.shop')->with([
             'products' => $products,

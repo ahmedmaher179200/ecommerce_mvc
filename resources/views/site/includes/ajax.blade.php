@@ -32,6 +32,10 @@
         var rating     = $('.rating').val();
         var content    = $('.content').val();
 
+        if(content == ''){
+            return 0;
+        }
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
@@ -54,6 +58,8 @@
             );
             //change reviews count
             $('.reviews_count').html(data['reviews_count']);
+            //
+            $('.content').val(null);
         },
         error: function (data) {
             alert('false');

@@ -23,7 +23,7 @@ class auth extends Controller
             return redirect()->back();
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('error', 'username or password is wrong');
     }
 
     public function logout(){
@@ -45,15 +45,15 @@ class auth extends Controller
             ]);
 
             if($validator->fails()){
-                return redirect()->back();
+                return redirect()->back()->with('error', $validator->errors());
             }
 
             User::create([
-            'name'          => $request->get('username'),
+            'name'              => $request->get('username'),
             'email'             => $request->get('email'),
             'password'          => Hash::make($request->get('password')),
         ]);
 
-        return redirect('login');
+        return redirect('login')->with('', 'sign up');
     }
 }

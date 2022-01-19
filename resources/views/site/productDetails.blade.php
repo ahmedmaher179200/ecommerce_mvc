@@ -254,7 +254,7 @@
 														<i class="item-rating pointer zmdi zmdi-star-outline"></i>
 														<input class="dis-none rating" type="number" name="rating">
 													</span>
-												</div>
+												</div>	
 
 												<div class="row p-b-25">
 													<div class="col-12 p-b-5">

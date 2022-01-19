@@ -74,15 +74,31 @@ class products extends Controller
         return $products;
     }
 
-    public function filter(Request $request){
-        // $request->price = 50;
-        $products =  Product::active()->where('id', '>', 1);
-        $products->get();
+    public function ProductsFilter(Request $request){
+        $products =  Product::query()->active();
 
-        if($request->price != null){
-            // $products->where('price', $request->price);
+        if($request->has('gender')){
+            $products->where('gender', '=' , $request->get('gender'));
         }
-        $products->get();
+
+        if($request->has('sub_categoriesId')){
+            $products->where('sub_categoriesId', '=' , $request->get('sub_categoriesId'));
+        }
+
+        if($request->has('min_price')){
+            $products->where('price', '>' , $request->get('min_price'));
+        }
+
+        if($request->has('max_price')){
+            $products->where('price', '<' , $request->get('max_price'));
+        }
+
+        if($request->has('color')){
+            $products->where('colors', 'like' , '%"' . $request->get('color') .'"%');
+        }
+
+        
+        $products = $products->paginate(8);
 
         return $products;
     }

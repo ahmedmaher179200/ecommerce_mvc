@@ -32,8 +32,11 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('{{url("public/site/login/images/bg-01.jpg")}}');">
 			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+				@include('site.alerts.error')
+				@include('site.alerts.success')
+
 				<form class="login100-form validate-form flex-sb flex-w" action="" method="post">
-          @csrf
+          			@csrf
 					<span class="login100-form-title p-b-53">
 						Sign In With
 					</span>

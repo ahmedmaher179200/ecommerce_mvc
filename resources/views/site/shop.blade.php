@@ -268,9 +268,9 @@
 		</div>
 
 		<!-- Load more -->
-		{{-- <div class="flex-c-m flex-w w-full p-t-45">
+		<div class="flex-c-m flex-w w-full p-t-45">
 			{{$products->links()}}
-		</div> --}}
+		</div>
 	</div>
 
 @endsection
