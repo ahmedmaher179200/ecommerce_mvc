@@ -35,8 +35,8 @@ Route::group(
         
         //orderss
         Route::group(['prefix' => 'orders', 'middleware' => 'auth:vendor'], function(){
-            Route::get('/', 'vendor\orders@showView');
-            Route::get('/changeStage/{id}', 'vendor\orders@changeStage');
+            Route::get('/', 'App\Http\Controllers\vendor\orders@showView');
+            Route::get('/changeStage/{id}', 'App\Http\Controllers\vendor\orders@changeStage');
         });
 
         //items

@@ -56,7 +56,7 @@
             </div>
         @else
             <div class="header-cart-content flex-w js-pscroll">
-                <ul class="header-cart-wrapitem w-full">
+                <ul class="header-cart-wrapitem w-full nav-cart-box">
                     ther are no item
                 </ul>
                 

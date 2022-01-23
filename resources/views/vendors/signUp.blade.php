@@ -51,7 +51,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                     </div>
                   </div>
                   <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                    <span>{{trans('vendor.vendor')}}</span>
+                    <span>vendor</span>
                   </h6>
                 </div>
                 <div class="card-content">
@@ -59,7 +59,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                     <form class="form-horizontal form-simple" action="" method="post">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                       <fieldset class="form-group position-relative has-icon-left mb-0" style="margin-bottom: 1.5rem !important">
-                        <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="{{trans('admin.Your Username')}}"
+                        <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Username"
                         name="username" value="{{ old('username') }}" autocomplete="off">
                         <div class="form-control-position">
                           <i class="ft-user"></i>
@@ -70,7 +70,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                       </fieldset>
 
                       <fieldset class="form-group position-relative has-icon-left mb-0" style="margin-bottom: 1.5rem !important">
-                        <input type="email" class="form-control form-control-lg input-lg" id="user-name" placeholder="{{trans('vendor.Your Email')}}"
+                        <input type="email" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Email"
                         name="email" value="{{ old('email') }}" autocomplete="off">
                         <div class="form-control-position">
                           <i class="ft-mail"></i>
@@ -93,7 +93,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
 
                       <fieldset class="form-group position-relative has-icon-left">
                         <input type="password" class="form-control form-control-lg input-lg" id="user-password"
-                        placeholder="{{trans('admin.Enter Password')}}" name="password" value="{{ old('password') }}" autocomplete="off">
+                        placeholder="Enter Password" name="password" value="{{ old('password') }}" autocomplete="off">
                         <div class="form-control-position">
                           <i class="la la-key"></i>
                         </div>
@@ -107,14 +107,14 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
-                          <div>{{ trans('adminBig.passwored or username is wrong') }}</div>
+                          <div>passwored or username is wrong</div>
                         </div>
                       @endisset
 
                       <div class="form-group row">
-                        <div class="col-md-6 col-12 text-center text-md-right"><a href="{{url('vendors/login')}}" class="card-link">{{ trans('vendor.login') }}</a></div>
+                        <div class="col-md-6 col-12 text-center text-md-right"><a href="{{url('vendors/login')}}" class="card-link">login</a></div>
                       </div>
-                      <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i>{{ trans('admin.Save') }}</button>
+                      <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i>Save</button>
                     </form>
                   </div>
                 </div>

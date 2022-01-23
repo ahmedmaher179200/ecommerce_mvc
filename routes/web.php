@@ -14,6 +14,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test', 'App\Http\Controllers\site\cart@test');
 
 Route::group(
     [

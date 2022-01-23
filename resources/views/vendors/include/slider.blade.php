@@ -7,9 +7,9 @@
               $q->where('vendor_id','=', auth('vendor')->user()->id);
             })->get();
           ?>
-          <li class=" nav-item"><a href="{{url('/vendor/orders')}}"><i class="la ft-user"></i><span class="menu-title" data-i18n="nav.dash.main">Oreders</span><span class="badge badge badge-info badge-pill float-right mr-2">{{$orders->count()}}</span></a>
+          <li class=" nav-item"><a href="{{url('/vendors/orders')}}"><i class="la ft-user"></i><span class="menu-title" data-i18n="nav.dash.main">Oreders</span><span class="badge badge badge-info badge-pill float-right mr-2">{{$orders->count()}}</span></a>
             <ul class="menu-content">
-              <li @if ($page == "orderShow") class="active" @endif><a class="menu-item" href="{{url('vendor/orders')}}" data-i18n="nav.dash.ecommerce">show all</a>
+              <li @if ($page == "orderShow") class="active" @endif><a class="menu-item" href="{{url('vendors/orders')}}" data-i18n="nav.dash.ecommerce">show all</a>
               </li>
             </ul>
           </li>

@@ -10,9 +10,9 @@
             <div class="row breadcrumbs-top">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb" style="margin-top: 25px;margin-left: 10px;">
-                        <li class="breadcrumb-item"><a href="{{url('vendor')}}">{{ trans('admin.dashbourd') }}</a>
+                        <li class="breadcrumb-item"><a href="{{url('vendors')}}">dashbourd</a>
                         </li>
-                        <li class="breadcrumb-item active">{{ trans('vendor.orders') }}
+                        <li class="breadcrumb-item active">orders
                         </li>
                     </ol>
                 </div>
@@ -26,7 +26,7 @@
         <div class="col-12">
             <div class="card">
             <div class="card-header">
-                <h4 class="card-title">{{ trans('vendor.orders') }}</h4>
+                <h4 class="card-title">orders</h4>
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -42,20 +42,20 @@
                 <table class="table table-striped table-bordered zero-configuration">
                     <thead>
                     <tr>
-                        <th>{{ trans('vendor.Item Name') }}</th>
-                        <th>{{ trans('vendor.Customer Name') }}</th>
-                        <th>{{ trans('vendor.stage') }}</th>
-                        <th>{{ trans('admin.action') }}</th>
+                        <th>product Name</th>
+                        <th>Customer Name</th>
+                        <th>stage</th>
+                        <th>action</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($orders as $order)
+                        @foreach ($orders_orderdetail as $order_orderdetail)
                             <tr>
-                                <td>{{$order->user->username}}</td>
-                                <td>{{$order->item->name}}</td>
-                                <td>{{App\CustomClass\myfunctions::RequestStage($order->stage)}}</td>
+                                <td>{{$order_orderdetail->Order->User->name}}</td>
+                                <td>{{$order_orderdetail->Product->name}}</td>
+                                <td>{{$order_orderdetail->Order->status}}</td>
                                 <td>
-                                    <a href="{{url('/vendor/orders/changeStage/' . $order->id)}}" class="btn btn-success btn-min-width box-shadow-2 mr-1 mb-1" style="min-width: 6.5rem; margin-right: 8px !important;">{{App\CustomClass\myfunctions::changeStage($order->stage)}}</a>
+                                    <a href="{{url('/vendor/orders/changeStage/' . $order_orderdetail->id)}}" class="btn btn-success btn-min-width box-shadow-2 mr-1 mb-1" style="min-width: 6.5rem; margin-right: 8px !important;">{{$order_orderdetail->Order->status}}</a>
                                 </td>
                             </tr>
                         @endforeach

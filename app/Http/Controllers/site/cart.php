@@ -151,4 +151,14 @@ class cart extends Controller
         return $nav_cart_html;
     }
 
+    public function test(){
+        session()->forget('cartItems');  
+
+        if(session()->has('cartItems')){
+            return session()->get('cartItems');
+        }
+
+        return 'no';
+    }
+
 }
