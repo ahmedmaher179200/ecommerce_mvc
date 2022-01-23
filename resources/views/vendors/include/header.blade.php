@@ -188,7 +188,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
         <ul class="nav navbar-nav float-right">
           <li class="dropdown dropdown-user nav-item">
             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-              <span class="mr-1">{{ trans('admin.Hello') }},
+              <span class="mr-1">Hello,
                 <span class="user-name text-bold-700">{{auth('vendor')->user()->name}}</span>
               </span>
               <span class="avatar avatar-online">
@@ -198,8 +198,8 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                   <img src="{{url('public/admin/theme/app-assets/images/portrait/small/avatar-s-19.png')}} " alt="avatar" style="width: 45px !important;height: 36px !important;"><i></i></span>
                 @endif
             </a>
-            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{url('vendor/editeProfile/' . auth('vendor')->user()->id )}}"><i class="ft-user"></i> {{ trans('admin.Edit Profile') }}</a>
-              <div class="dropdown-divider"></div><a class="dropdown-item" href="{{url('vendors/logout')}}"><i class="ft-power"></i> {{ trans('admin.Logout') }}</a>
+            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{url('vendor/editeProfile/' . auth('vendor')->user()->id )}}"><i class="ft-user"></i>Edit Profile</a>
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="{{url('vendors/logout')}}"><i class="ft-power"></i> Logout</a>
             </div>
           </li>
           <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
@@ -236,7 +236,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                           </div>
                         </div>
                       </a>
-                {{-- <div class="noNotifications">{{ trans('vendor.there are no notifications') }}</div> --}}
+                {{-- <div class="noNotifications">there are no notifications</div> --}}
               <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="#">Read all notifications</a></li>
             </ul>
           </li>

@@ -70,23 +70,23 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                       </fieldset>
 
                       <fieldset class="form-group position-relative has-icon-left mb-0" style="margin-bottom: 1.5rem !important">
-                        <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="{{trans('vendor.name')}}"
-                        name="name"  value="{{ old('name') }}" autocomplete="off">
-                        <div class="form-control-position">
-                          <i class="ft-user"></i>
-                        </div>
-                        @error('name')
-                            <span style="color: red;">{{$message}}</span>
-                        @enderror
-                      </fieldset>
-
-                      <fieldset class="form-group position-relative has-icon-left mb-0" style="margin-bottom: 1.5rem !important">
                         <input type="email" class="form-control form-control-lg input-lg" id="user-name" placeholder="{{trans('vendor.Your Email')}}"
                         name="email" value="{{ old('email') }}" autocomplete="off">
                         <div class="form-control-position">
                           <i class="ft-mail"></i>
                         </div>
                         @error('email')
+                            <span style="color: red;">{{$message}}</span>
+                        @enderror
+                      </fieldset>
+
+                      <fieldset class="form-group position-relative has-icon-left mb-0" style="margin-bottom: 1.5rem !important">
+                        <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="phone"
+                        name="phone"  value="{{ old('phone') }}" autocomplete="off">
+                        <div class="form-control-position">
+                          <i class="ft-user"></i>
+                        </div>
+                        @error('phone')
                             <span style="color: red;">{{$message}}</span>
                         @enderror
                       </fieldset>
@@ -112,7 +112,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                       @endisset
 
                       <div class="form-group row">
-                        <div class="col-md-6 col-12 text-center text-md-right"><a href="{{url('vendor/login')}}" class="card-link">{{ trans('vendor.login') }}</a></div>
+                        <div class="col-md-6 col-12 text-center text-md-right"><a href="{{url('vendors/login')}}" class="card-link">{{ trans('vendor.login') }}</a></div>
                       </div>
                       <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i>{{ trans('admin.Save') }}</button>
                     </form>

@@ -86,7 +86,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
                       @endisset
 
                       <div class="form-group row">
-                        <div class="col-md-6 col-12 text-center text-md-right"><a href="{{url('vendor/signUp')}}" class="card-link">{{ trans('vendor.Sign Up') }}</a></div>
+                        <div class="col-md-6 col-12 text-center text-md-right"><a href="{{url('vendors/signUp')}}" class="card-link">{{ trans('vendor.Sign Up') }}</a></div>
                       </div>
                       <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i>{{ trans('admin.Login') }}</button>
                     </form>

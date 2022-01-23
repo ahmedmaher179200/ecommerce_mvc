@@ -42,30 +42,26 @@
                 <table class="table table-striped table-bordered zero-configuration">
                     <thead>
                     <tr>
-                        <th>{{ trans('vendor.Item Name') }}</th>
-                        <th>{{ trans('vendor.Item Image') }}</th>
-                        <th>{{ trans('vendor.Number Of sale') }}</th>
-                        <th>{{ trans('vendor.price') }}</th>
-                        <th>{{ trans('vendor.discount') }}</th>
-                        <th>{{ trans('admin.action') }}</th>
+                        <th>Item Name</th>
+                        <th>Item Image</th>
+                        <th>Number Of sale</th>
+                        <th>price</th>
+                        <th>discount</th>
+                        <th>action</th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($items as $item)
-                            <?php
-                            $images = explode('_', $item->image);
-                            array_pop($images);
-                            ?>
+                        @foreach ($products as $product)
                             <tr>
-                                <td>{{$item->name}}</td>
+                                <td>{{$product->name}}</td>
                                 <td>
-                                    <img src="{{url('public/upload/item/' . $images[0])}}" style="width: 100px;">
+                                    <img src="{{url('public/uploads/products/' . $product->images[0]->image)}}" style="width: 100px;">
                                 </td>
-                                <td>{{$item->saleNumber}}</td>
-                                <td>{{$item->price}}</td>
-                                <td>{{$item->discount}} %</td>
+                                <td>{{$product->number_of_sell}}</td>
+                                <td>{{$product->price}}</td>
+                                <td>{{$product->discound}} %</td>
                                 <td>
-                                    <a href="{{url('/vendor/items/editeItem/' . $item->id)}}" class="btn btn-success btn-min-width box-shadow-2 mr-1 mb-1" style="min-width: 6.5rem; margin-right: 8px !important;">edite</a>
+                                    <a href="{{url('/vendors/products/editeProduct/' . $product->id)}}" class="btn btn-success btn-min-width box-shadow-2 mr-1 mb-1" style="min-width: 6.5rem; margin-right: 8px !important;">edite</a>
                                 </td>
                             </tr>
                         @endforeach

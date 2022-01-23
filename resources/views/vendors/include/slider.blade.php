@@ -7,18 +7,18 @@
               $q->where('vendor_id','=', auth('vendor')->user()->id);
             })->get();
           ?>
-          <li class=" nav-item"><a href="{{url('/vendor/orders')}}"><i class="la ft-user"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('front.Oreders') }}</span><span class="badge badge badge-info badge-pill float-right mr-2">{{$orders->count()}}</span></a>
+          <li class=" nav-item"><a href="{{url('/vendor/orders')}}"><i class="la ft-user"></i><span class="menu-title" data-i18n="nav.dash.main">Oreders</span><span class="badge badge badge-info badge-pill float-right mr-2">{{$orders->count()}}</span></a>
             <ul class="menu-content">
-              <li @if ($page == "orderShow") class="active" @endif><a class="menu-item" href="{{url('vendor/orders')}}" data-i18n="nav.dash.ecommerce">{{ trans('admin.show all') }}</a>
+              <li @if ($page == "orderShow") class="active" @endif><a class="menu-item" href="{{url('vendor/orders')}}" data-i18n="nav.dash.ecommerce">show all</a>
               </li>
             </ul>
           </li>
 
-          <li class=" nav-item"><a href="{{url('/vendor/items')}}"><i class="la ft-user"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('vendor.Items') }}</span><span class="badge badge badge-info badge-pill float-right mr-2">{{App\models\Product::where('vendor_id', '=', auth()->user()->id)->count()}}</span></a>
+          <li class=" nav-item"><a href="{{url('/vendors/products')}}"><i class="la ft-user"></i><span class="menu-title" data-i18n="nav.dash.main">products</span><span class="badge badge badge-info badge-pill float-right mr-2">{{App\models\Product::where('vendor_id', '=', auth()->user()->id)->count()}}</span></a>
             <ul class="menu-content">
-              <li @if ($page == "itemShow") class="active" @endif><a class="menu-item" href="{{url('vendor/items')}}" data-i18n="nav.dash.ecommerce">{{ trans('admin.show all') }}</a>
+              <li @if ($page == "itemShow") class="active" @endif><a class="menu-item" href="{{url('vendors/products')}}" data-i18n="nav.dash.ecommerce">show all</a>
               </li>
-              <li @if ($page == "addItem") class="active" @endif><a class="menu-item" href="{{url('vendor/items/addItem')}}" data-i18n="nav.dash.ecommerce">{{ trans('admin.add') }}</a>
+              <li @if ($page == "addItem") class="active" @endif><a class="menu-item" href="{{url('vendors/products/addProduct')}}" data-i18n="nav.dash.ecommerce">add</a>
               </li>
             </ul>
           </li>

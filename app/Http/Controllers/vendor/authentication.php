@@ -4,6 +4,7 @@ namespace App\Http\Controllers\vendor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\vendor\loginRequest;
+use App\Http\Requests\vendor\signUp;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,19 +32,19 @@ class authentication extends Controller
         return redirect('vendors/login');
     }
 
-    // public function signUpView(){
+    public function signUpView(){
+        return view('vendors.signUp');
+    }
 
-    //     return view('restaurants.signUp');
-    // }
+    public function signUp(signUp $Request){
+        Vendor::create([
+            'fullName'      => $Request->username,
+            'email'         => $Request->email,
+            'password'      => Hash::make($Request->password),
+            'phone'         => $Request->phone,
+            'status'        => 1,
+        ]);
 
-    // public function signUp(signUpRestaurant $Request){
-    //     Restaurant::create([
-    //         'username'      => $Request->username,
-    //         'email'         => $Request->email,
-    //         'password'      => Hash::make($Request->password),
-    //         'name'          => $Request->name,
-    //         'active'        => 0,
-    //     ]);
-    //     return redirect('restaurant/login')->with('success', trans('restaurant.sign up success') );
-    // }
+        return redirect('vendors/login')->with('success', 'sign up success');
+    }
 }

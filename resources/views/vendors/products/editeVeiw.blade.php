@@ -38,17 +38,17 @@
                 <form class="form" action="" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-body">
-                        <h4 class="form-section"><i class="ft-user"></i>{{ trans('admin.Add sub Categories') }}</h4>
+                        <h4 class="form-section"><i class="ft-user"></i>Add sub Categories</h4>
                         <input name="noImage" value="1" type="hidden">
                         <input name="vendorToken" value="{{auth()->user()->remember_token}}" type="hidden">
 
-                        <label for="projectinput1">{{ trans('admin.categories image')}}</label>
+                        <label for="projectinput1">categories image</label>
                         <br>
                         <div class="row">
                             <!--images-->
                             <div class="col-lg-6">
-                                <input name="image[]" type="file" multiple >
-                                @error('image')
+                                <input name="images[]" type="file" multiple >
+                                @error('images')
                                     <span style="color: red;">{{$message}}</span>
                                 @enderror
                             </div>
@@ -58,14 +58,10 @@
 
                             <!--sub cat-->
                             <div class="col-lg-6">
-                                <label for="projectinput1">{{ trans('vendor.sub categories') }}</label>
+                                <label for="projectinput1">sub categories</label>
                                 <select name="sub_CategoriesId" style="width: 300px">
-                                    @foreach (App\models\Category::where('translation_lang', '=', LaravelLocalization::getCurrentLocale())->get() as $sub_cate)                                        
-                                        @if ($sub_cate->translation_of == 0)
-                                            <option value="{{$sub_cate->id}}" @if ($sub_cate->id == $item->sub_CategoriesId) selected @endif>{{$sub_cate->main_cate->name}} => {{$sub_cate->name}}</option>
-                                        @else
-                                            <option value="{{$sub_cate->translation_of}}" @if ($sub_cate->translation_of == $item->sub_CategoriesId) selected @endif>{{$sub_cate->main_cate->name}} => {{$sub_cate->name}}</option>
-                                        @endif
+                                    @foreach (App\models\Sub_category::active()->where('locale', LaravelLocalization::getCurrentLocale())->get() as $sub_cate)                                        
+                                        <option value="{{$sub_cate->parent}}" @if ($sub_cate->parent == $product->sub_categoriesId) selected @endif>{{$sub_cate->Main_categories->name}} => {{$sub_cate->name}}</option>
                                     @endforeach
                                 </select>
                                 <br>
@@ -80,8 +76,8 @@
                             <!--item Name-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="projectinput1">{{ trans('vendor.Item Name')}}</label>
-                                    <input type="text" class="form-control" name="name" value="{{ $item->name }}" autocomplete="off">
+                                    <label for="projectinput1">Item Name</label>
+                                    <input type="text" class="form-control" name="name" value="{{ $product->name }}" autocomplete="off">
                                     @error('name')
                                         <span style="color: red;">{{$message}}</span>
                                     @enderror
@@ -94,8 +90,8 @@
                             <!--item price-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="projectinput1">{{ trans('vendor.Item price')}}</label>
-                                    <input type="number" class="form-control" name="price" min="0" value="{{ $item->price }}" autocomplete="off">
+                                    <label for="projectinput1">Item price</label>
+                                    <input type="number" class="form-control" name="price" min="0" value="{{ $product->price }}" autocomplete="off">
                                     @error('price')
                                         <span style="color: red;">{{$message}}</span>
                                     @enderror
@@ -105,16 +101,31 @@
                             <br>
                             <br>
 
-                            <!--item discount-->
+                            <!--item discound-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="projectinput1">{{ trans('vendor.Item discount')}}</label>
-                                    <input type="number" class="form-control" name="discount" min="0" max="100" value="{{ $item->discount }}" autocomplete="off">
+                                    <label for="projectinput1">products discound</label>
+                                    <input type="number" class="form-control" name="discound" min="0" max="100" value="{{$product->discound}}" autocomplete="off">
                                     @error('price')
                                         <span style="color: red;">{{$message}}</span>
                                     @enderror
                                 </div>
                             </div>
+                            <br>
+                            <br>
+                            <br>
+
+                            <!--item quantity-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="projectinput1">product quantity</label>
+                                    <input type="number" class="form-control" name="quantity" min="1"  value="{{$product->quantity}}" autocomplete="off">
+                                    @error('quantity')
+                                        <span style="color: red;">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            
                             <br>
                             <br>
                             <br>
@@ -122,8 +133,8 @@
                             <!--item describtion-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="projectinput1">{{ trans('vendor.Item describtion')}}</label>
-                                    <textarea type="text" class="form-control" name="describtion">{{ $item->describtion }}</textarea>
+                                    <label for="projectinput1">product describtion</label>
+                                    <textarea type="text" class="form-control" name="describe">{{ $product->describe }}</textarea>
                                     @error('describtion')
                                         <span style="color: red;">{{$message}}</span>
                                     @enderror
@@ -136,7 +147,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">
-                        <i class="la la-check-square-o"></i> {{ trans('admin.Save') }}
+                        <i class="la la-check-square-o"></i> Save
                     </button>
                 </form>
             </div>

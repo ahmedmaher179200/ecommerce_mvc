@@ -19,9 +19,9 @@ class venders extends Migration
             $table->string('password')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable()->unique();
-            $table->tinyInteger('email_verified_at')->nullable()->comment('null -> not active, 1-> active');
+            $table->tinyInteger('email_verified')->nullable()->comment('null -> not active, 1-> active');
             $table->tinyInteger('status')->default(1)->comment('0-> blocked');
-            $table->tinyInteger('gender')->nullable()->comment('0-> male, 1-> famale');
+            $table->tinyInteger('gender')->nullable()->comment('0-> male, 1-> famale')->default(0);
             $table->date('birth')->nullable();
             $table->rememberToken();
             $table->timestamps();

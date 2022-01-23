@@ -18,15 +18,13 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
     Route::group(["prefix" => "vendors"], function(){
-        // Route::get('/test', 'App\Http\Controllers\vendor\home@test');
-
         //login
         Route::get('/login', 'App\Http\Controllers\vendor\authentication@loginView')->middleware('guest:vendor')->name('vendorLogin');
         Route::post('/login', 'App\Http\Controllers\vendor\authentication@login');
 
         //  signUp
-        Route::get('/signUp', 'vendor\login@signUpView')->middleware('guest:vendor');
-        Route::post('/signUp', 'vendor\login@signUp')->middleware('guest:vendor');
+        Route::get('/signUp', 'App\Http\Controllers\vendor\authentication@signUpView')->middleware('guest:vendor');
+        Route::post('/signUp', 'App\Http\Controllers\vendor\authentication@signUp')->middleware('guest:vendor');
 
 
         //logout
@@ -42,12 +40,12 @@ Route::group(
         });
 
         //items
-        Route::group(['prefix'=>'items', 'middleware' => 'auth:vendor'],function(){
-            Route::get('/', 'vendor\items@itemsView');
-            Route::get('/addItem', 'vendor\items@addItemView');
-            Route::post('/addItem', 'vendor\items@add');
-            Route::get('/editeItem/{id}', 'vendor\items@editeItem');
-            Route::post('/editeItem/{id}', 'vendor\items@edite');
+        Route::group(['prefix'=>'products', 'middleware' => 'auth:vendor'],function(){
+            Route::get('/', 'App\Http\Controllers\vendor\products@itemsView');
+            Route::get('/addProduct', 'App\Http\Controllers\vendor\products@addProductView');
+            Route::post('/addProduct', 'App\Http\Controllers\vendor\products@add');
+            Route::get('/editeProduct/{id}', 'App\Http\Controllers\vendor\products@editeItem');
+            Route::post('/editeProduct/{id}', 'App\Http\Controllers\vendor\products@edite');
         });
 
         //edite profile
