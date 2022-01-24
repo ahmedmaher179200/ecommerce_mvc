@@ -16,21 +16,4 @@ class orders extends Controller
             
         return view('vendors.orders.ordersView')->with('orders_orderdetail', $orders_orderdetail);
     }
-
-    // public function changeStage($id){
-    //     $Reqest = ModelsRequest::find($id);
-
-    //     if(!empty($Reqest)){
-    //         if($Reqest->stage == 0){
-    //             $Reqest->stage = 2;
-    //         } else if($Reqest->stage == 2){
-    //             $Reqest->stage = 0;
-    //         }
-    //         $Reqest->save();
-            
-    //     } 
-    //     return redirect('restaurant/orders')->with('success', trans('restaurant.success') );
-
-        
-    // }
 }

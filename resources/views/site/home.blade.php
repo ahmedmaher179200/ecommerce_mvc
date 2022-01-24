@@ -419,7 +419,7 @@
                                     </a>
 
                                     <span class="stext-105 cl3">
-                                        {{$product->getPriceAfterDiscound()}}
+                                        ${{$product->getPriceAfterDiscound()}}
                                     </span>
                                 </div>
 

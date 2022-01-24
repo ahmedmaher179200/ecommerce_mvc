@@ -24,7 +24,7 @@
     <section id="configuration">
         <div class="row">
         <div class="col-12">
-            <div class="card">
+            <div class="card" style="overflow: scroll;">
             <div class="card-header">
                 <h4 class="card-title">orders</h4>
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
@@ -42,21 +42,29 @@
                 <table class="table table-striped table-bordered zero-configuration">
                     <thead>
                     <tr>
-                        <th>product Name</th>
                         <th>Customer Name</th>
+                        <th>product Name</th>
+                        <th>total price</th>
                         <th>stage</th>
-                        <th>action</th>
+                        <th>product price</th>
+                        <th>product discound</th>
+                        <th>product quantity</th>
+                        <th>product color</th>
+                        <th>product size</th>
                     </tr>
                     </thead>
                     <tbody>
                         @foreach ($orders_orderdetail as $order_orderdetail)
                             <tr>
-                                <td>{{$order_orderdetail->Order->User->name}}</td>
                                 <td>{{$order_orderdetail->Product->name}}</td>
-                                <td>{{$order_orderdetail->Order->status}}</td>
-                                <td>
-                                    <a href="{{url('/vendor/orders/changeStage/' . $order_orderdetail->id)}}" class="btn btn-success btn-min-width box-shadow-2 mr-1 mb-1" style="min-width: 6.5rem; margin-right: 8px !important;">{{$order_orderdetail->Order->status}}</a>
-                                </td>
+                                <td>{{$order_orderdetail->Order->User->name}}</td>
+                                <td>${{$order_orderdetail->product_total_price}}</td>
+                                <td>{{$order_orderdetail->Order->getStatus()}}</td>
+                                <td>${{$order_orderdetail->product_price}}</td>
+                                <td>%{{$order_orderdetail->product_discound}}</td>
+                                <td>{{$order_orderdetail->quantity}}</td>
+                                <td>{{$order_orderdetail->color}}</td>
+                                <td>{{$order_orderdetail->size}}</td>
                             </tr>
                         @endforeach
                     </tbody>

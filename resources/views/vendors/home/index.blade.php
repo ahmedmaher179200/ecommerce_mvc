@@ -29,8 +29,8 @@
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="media-body text-left">
-                          <h3 class="info">10</h3>
-                          <h6>{{ trans('vendor.all order') }}</h6>
+                          <h3 class="info">{{$all_order_count}}</h3>
+                          <h6>all order</h6>
                         </div>
                         <div>
                           <i class="icon-basket-loaded info font-large-2 float-right"></i>
@@ -50,8 +50,9 @@
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="media-body text-left">
-                          <h3 class="warning">10</h3>
-                          <h6>{{ trans('vendor.finsh order') }}</h6>
+                          
+                          <h3 class="warning">{{$finshed_order_count}}</h3>
+                          <h6>finshed order</h6>
                         </div>
                         <div>
                           <i class="icon-pie-chart warning font-large-2 float-right"></i>
@@ -71,8 +72,9 @@
                     <div class="card-body">
                       <div class="media d-flex">
                         <div class="media-body text-left">
-                          <h3 class="success">20$</h3>
-                          <h6>{{ trans('vendor.total money') }}</h6>
+                          
+                          <h3 class="success">${{$total_money}}</h3>
+                          <h6>total money</h6>
                         </div>
                         <div>
                           <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -93,7 +95,7 @@
                       <div class="media d-flex">
                         <div class="media-body text-left">
                           <h3 class="danger">50$</h3>
-                          <h6>{{ trans('vendor.received money') }}</h6>
+                          <h6>received money</h6>
                         </div>
                         <div>
                           <i class="icon-heart danger font-large-2 float-right"></i>

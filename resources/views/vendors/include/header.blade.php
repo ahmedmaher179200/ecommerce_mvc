@@ -37,7 +37,7 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
       <ul class="nav navbar-nav flex-row">
         <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
         <li class="nav-item mr-auto">
-          <a class="navbar-brand" href="{{url('vendor')}}">
+          <a class="navbar-brand" href="{{url('vendors')}}">
             <img class="brand-logo" alt="modern admin logo" src="{{url('public/admin/theme/app-assets/images/logo/logo.png')}}">
             <h3 class="brand-text">Modern Admin</h3>
           </a>
@@ -192,13 +192,9 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                 <span class="user-name text-bold-700">{{auth('vendor')->user()->name}}</span>
               </span>
               <span class="avatar avatar-online">
-                @if (auth('vendor')->user()->image != NULL)
-                  <img src="{{url('public/upload/vendor/' . auth('vendor')->user()->image)}}" alt="avatar" style="width: 45px !important;height: 36px !important;"><i></i></span>
-                @else
-                  <img src="{{url('public/admin/theme/app-assets/images/portrait/small/avatar-s-19.png')}} " alt="avatar" style="width: 45px !important;height: 36px !important;"><i></i></span>
-                @endif
+                <img src="{{url('public/uploads/vendors/' . auth('vendor')->user()->getImage())}} " alt="avatar" style="width: 45px !important;height: 36px !important;"><i></i></span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{url('vendor/editeProfile/' . auth('vendor')->user()->id )}}"><i class="ft-user"></i>Edit Profile</a>
+            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{url('vendors/profile/edite/' . auth('vendor')->user()->id )}}"><i class="ft-user"></i>Edit Profile</a>
               <div class="dropdown-divider"></div><a class="dropdown-item" href="{{url('vendors/logout')}}"><i class="ft-power"></i> Logout</a>
             </div>
           </li>

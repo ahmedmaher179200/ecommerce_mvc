@@ -49,9 +49,9 @@ Route::group(
         });
 
         //edite profile
-        Route::group(['prefix'=>'editeProfile', 'middleware' => 'auth:vendor'],function(){
-            Route::get('/{id}', 'vendor\editeProfile@editeProfileView');
-            Route::post('/{id}', 'vendor\editeProfile@editeProfile');
+        Route::group(['prefix'=>'profile', 'middleware' => 'auth:vendor'],function(){
+            Route::get('edite/{id}', 'App\Http\Controllers\vendor\profile@editeView');
+            Route::post('edite/{id}', 'App\Http\Controllers\vendor\profile@editeProfile');
         });
 
         //notification

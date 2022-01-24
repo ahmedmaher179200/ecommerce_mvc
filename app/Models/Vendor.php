@@ -61,4 +61,12 @@ class Vendor extends Authenticatable
         return $this->status == 1 ? 'blocked': 'active';
     }
 
+    public function getImage(){
+        if(!empty($this->image)){
+            return $this->image->image;
+        } else {
+            return 'a1.png';
+        }
+    }
+
 }
