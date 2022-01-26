@@ -15,10 +15,10 @@ class Admins extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('userName')->nullable();
+            $table->string('username')->nullable();
             $table->string('password')->nullable();
             $table->string('email')->nullable()->unique();
-            $table->string('image')->default('default.jpg')->nullable();
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

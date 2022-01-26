@@ -11,6 +11,9 @@ class Admin extends Authenticatable
 {
     use HasFactory;
     use Notifiable;
+    protected $table = 'admins';
+
+    protected $guarded = [];
 
     public function getJWTIdentifier()
     {
