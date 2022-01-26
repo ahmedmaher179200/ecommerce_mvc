@@ -40,4 +40,7 @@ Route::group(
         Route::post('/cart/remove', 'App\Http\Controllers\site\cart@remove');
         Route::post('/cart/increment', 'App\Http\Controllers\site\cart@increment');
         Route::post('/cart/decrement', 'App\Http\Controllers\site\cart@decrement');
+
+        Route::post('/order/make', 'App\Http\Controllers\site\orders@makeOrder');
+
     });

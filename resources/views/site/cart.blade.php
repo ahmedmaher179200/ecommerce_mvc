@@ -20,7 +20,7 @@
 		
 
 	<!-- Shoping Cart -->
-	<form class="bg0 p-t-75 p-b-85">
+		@csrf
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -37,7 +37,7 @@
 
                                 @if (session()->has('cartItems'))
                                     @foreach (session()->get('cartItems') as $cartItem)
-                                        <tr class="table_row {{'product-' . $cartItem['id']}}">
+                                        <tr class="table_row cart-page-item {{'product-' . $cartItem['id']}}">
                                             <td class="column-1">
                                                 <div class="how-itemcart1 remove-from-cart" data-product_id="{{$cartItem['id']}}">
                                                     <img src="{{url('public/uploads/products/' . $cartItem['iamge'])}}" alt="IMG">
@@ -169,13 +169,12 @@
 							</div>
 						</div>
 
-						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+						<button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer checkout">
 							Proceed to Checkout
 						</button>
 					</div>
 				</div>
 			</div>
 		</div>
-	</form>
 
 @endsection

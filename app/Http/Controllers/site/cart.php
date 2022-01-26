@@ -38,7 +38,7 @@ class cart extends Controller
             'size'      => $request->size,
             'price'     => $product->price,
             'discount'  => [
-                                'percentage'  => $product->discount,
+                                'percentage'  => $product->discound,
                                 'value'       => $this->percentFromNumber($product->price, $product->discound),
                         ],
             'name'      => $product->name,
@@ -150,15 +150,4 @@ class cart extends Controller
         
         return $nav_cart_html;
     }
-
-    public function test(){
-        session()->forget('cartItems');  
-
-        if(session()->has('cartItems')){
-            return session()->get('cartItems');
-        }
-
-        return 'no';
-    }
-
 }

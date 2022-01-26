@@ -208,29 +208,40 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
               @endforeach
             </div>
           </li>
+          <?php 
+              $new_notifications = App\Models\Vendor_notification::where('vendor_id', auth('vendor')->user()->id)
+                                                                ->where('seen', 0)
+                                                                ->get();
+            ?>
           <li class="dropdown dropdown-notification nav-item">
             <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
-              <span class="badge badge-pill newNotificationsNumber badge-default badge-danger badge-default badge-up badge-glow">10</span>
+              <span class="badge badge-pill newNotificationsNumber badge-default badge-danger badge-default badge-up badge-glow">{{count($new_notifications)}}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
               <li class="dropdown-menu-header">
                 <h6 class="dropdown-header m-0">
                   <span class="grey darken-2">Notifications</span>
                 </h6>
-                <span class="notification-tag badge NotificationsNumber badge-default badge-danger float-right m-0">10 New</span>
+                
+                <span class="notification-tag badge NotificationsNumber badge-default badge-danger float-right m-0">{{count($new_notifications)}} New</span>
               </li>
               <li class="scrollable-container media-list notificationsList w-100">
-                      <a href="{{url('vendor/notification')}}">
-                        <div class="media">
-                          <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
-                          <div class="media-body">
-                            <h6 class="media-heading">title</h6>
-                            <p class="notification-text font-small-3 text-muted">content <span style="color:red;">car<span></p>
-                            <small>
-                              <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">29:3</time>
-                            </small>
+                      <a href="{{url('vendors/notification')}}">
+                        <?php 
+                          $all_notifications = App\Models\Vendor_notification::where('vendor_id', auth('vendor')->user()->id)->get();
+                        ?>
+                        @foreach ($all_notifications as $notification)
+                          <div class="media">
+                            <div class="media-left align-self-center"><i class="ft-plus-square icon-bg-circle bg-cyan"></i></div>
+                            <div class="media-body">
+                              <h6 class="media-heading">{{$notification->title}}</h6>
+                              <p class="notification-text font-small-3 text-muted">{{$notification->content}}</p>
+                              <small>
+                                <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">{{$notification->created_at}}</time>
+                              </small>
+                            </div>
                           </div>
-                        </div>
+                        @endforeach
                       </a>
                 {{-- <div class="noNotifications">there are no notifications</div> --}}
               <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="#">Read all notifications</a></li>

@@ -187,4 +187,31 @@
         });
     })
 
+    //make order
+    $(document).on("click",".checkout", function(){
+        var product_id = $(this).attr("data-product_id");
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        });
+        $.ajax({
+            async: false,
+            method: "post",
+            url: "{{url(LaravelLocalization::getCurrentLocale())}}" + "/order/make",
+            data: {
+            },
+        
+        success: function (data) {
+            $('.nav_cart').attr('data-notify', 0);
+            $('.totle_price').html(0);
+            $('.nav-cart-box').html('');
+            $('.cart-page-item').remove();
+        },
+        error: function (data) {
+            alert('false');
+        }
+        });
+    })
 </script>

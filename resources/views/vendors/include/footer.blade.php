@@ -17,23 +17,24 @@
   <script src="{{url('public/site/js/vendorAjax.js')}}" type="text/javascript"></script>
 
   
+
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script>
-      var vendorId = $('.vendorId').val();
-      // Enable pusher logging - don't include this in production
-      Pusher.logToConsole = true;
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
 
-      var pusher = new Pusher('0bb176c4403298cd3f60', {
-        cluster: 'eu'
-      });
+    var pusher = new Pusher('04b6525a4ec588084c5a', {
+      cluster: 'eu'
+    });
 
-      var channel = pusher.subscribe('channel-makeOrderNotification-' + vendorId);
-      channel.bind('event-makeOrderNotification', function(data) {
-          $('.newNotificationsNumber').html(data.count);
-          $('.NotificationsNumber').html(data.count + ' New');
-          $('.notificationsList').html(data.code);
-      });
-    </script>
+    var channel = pusher.subscribe('preder-notification-{{auth('vendor')->user()->id}}');
+    channel.bind('preder-notification', function(data) {
+      $('.newNotificationsNumber').html(data['count']);
+      $(".media-list").prepend(data['notification_html']);
+    });
+  </script>
+
+  @include('vendors.include.ajax')
 
   <!-- END MODERN JS-->
   <!-- BEGIN PAGE LEVEL JS-->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\site;
 
+use App\Events\vendor_notification;
 use App\Http\Controllers\Controller;
 use App\Models\Love;
 use App\Models\Product;
@@ -60,6 +61,7 @@ class viewsController extends Controller
     }
 
     public function cartView(){
+
         return view('site.cart');
     }
 

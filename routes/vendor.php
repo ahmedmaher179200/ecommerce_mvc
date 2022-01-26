@@ -56,7 +56,7 @@ Route::group(
 
         //notification
         Route::group(['prefix'=>'notification', 'middleware' => 'auth:vendor'],function(){
-            Route::post('/changStatus', 'vendor\notification@changStatus');
+            Route::post('/seen', 'App\Http\Controllers\vendor\notification@notification_seen');
         });
 
     });
