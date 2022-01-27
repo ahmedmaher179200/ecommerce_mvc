@@ -4,7 +4,7 @@
 
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{url('user_images/default.png')}}" class="img-circle" alt="User Image">
+                <img src="{{url('public/uploads/admins/' . auth('admin')->user()->getImage())}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>ahmed maher</p>

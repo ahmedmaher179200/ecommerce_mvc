@@ -20,13 +20,18 @@ class Admin extends Authenticatable
         return $this->getKey();
     }
 
-    /**
-     * Return a key value array, containing any custom claims to be added to the JWT.
-     *
-     * @return array
-     */
-    public function getJWTCustomClaims()
+    //relations
+    public function image()
     {
-        return [];
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    //
+    public function getImage(){
+        if(!empty($this->image)){
+            return $this->image->image;
+        } else {
+            return 'a1.jpg';
+        }
     }
 }

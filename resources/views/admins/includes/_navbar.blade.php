@@ -93,14 +93,14 @@
                 <li class="dropdown user user-menu">
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                        <img src="{{url('user_images/default.png')}}" class="user-image" alt="User Image">
+                        <img src="{{url('public/uploads/admins/' . auth('admin')->user()->getImage())}}" class="user-image" alt="User Image">
                         <span class="hidden-xs">ahmed maher</span>
                     </a>
                     <ul class="dropdown-menu">
 
                         {{--<!-- User image -->--}}
                         <li class="user-header">
-                            <img src="{{url('user_images/default.png')}}" class="img-circle" alt="User Image">
+                            <img src="{{url('public/uploads/admins/' . auth('admin')->user()->getImage())}}" class="img-circle" alt="User Image">
 
                             <p>
                                 ahmed maher

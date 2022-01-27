@@ -26,7 +26,6 @@ Route::group(
         Route::get('/signUp', 'App\Http\Controllers\vendor\authentication@signUpView')->middleware('guest:vendor');
         Route::post('/signUp', 'App\Http\Controllers\vendor\authentication@signUp')->middleware('guest:vendor');
 
-
         //logout
         Route::get('/logout', 'App\Http\Controllers\vendor\authentication@logout')->middleware('auth:vendor');
 
