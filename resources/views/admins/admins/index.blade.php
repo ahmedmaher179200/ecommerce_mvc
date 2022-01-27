@@ -37,9 +37,9 @@
                             <div class="col-md-4">
                                 <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i>
                                     search</button>
-                                    <a href="#"
+                                    <a href="{{url('admins/admins/create')}}"
                                     class="btn btn-primary"><i class="fa fa-plus"></i>add
-                                </a>
+                                    </a>
                                     {{-- <button class="btn btn-primary"disabled><i class="fa fa-plus"></i>Add </button> --}}
 
 
@@ -55,34 +55,37 @@
                         <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>name</th>
-                                    <th>phone</th>
-                                    <th>address</th>
+                                    <th>username</th>
+                                    <th>email</th>
+                                    <th>role</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>ahmed</td>
-                                    <td>012123123</td>
-                                    <td>eygpt</td>
-                                    <td>
-                                        @include('dashboard.buttons.edit')
+                                @foreach ($admins as $admin)
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{{$admin->username}}</td>
+                                        <td>{{$admin->email}}</td>
+                                        <td>{{$admin->getRole()}}</td>
+                                        <td>
+                                            @include('admins.buttons.edit')
+                                    
+                                            {{-- <button class="btn btn-info btn-sm"type="submit" value="" disabled>
+                                                <i class="fa fa-edit">edit</i>
+                                            </button> --}}
+
+                                            <a href="{{url('admins/admins/delete/' . $admin->id)}}" tyle="color:#fff!important;" rel="tooltip" title="" class="btn btn-danger  btn-sm">
+                                                <i class="fa fa-1x fa-trash">delete</i>
+                                            </a> 
+                                            {{-- <button class="btn btn-danger btn-sm"type="submit" value="" disabled>
+                                                <i class="fa fa-trash">delete</i>
+                                            </button> --}}
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 
-                                        {{-- <button class="btn btn-info btn-sm"type="submit" value="" disabled>
-                                            <i class="fa fa-edit">edit</i>
-                                        </button> --}}
-
-                                        @include('dashboard.buttons.delete')
-                                        {{-- <button class="btn btn-danger btn-sm"type="submit" value="" disabled>
-                                            <i class="fa fa-trash">delete</i>
-                                        </button> --}}
-
-                                    </td>
-                                </tr>
-
                             </tbody>
 
                         </table> {{-- end of table --}}

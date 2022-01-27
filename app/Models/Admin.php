@@ -18,11 +18,6 @@ class Admin extends Authenticatable
 
     protected $guarded = [];
 
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-    }
-
     //relations
     public function image()
     {
@@ -35,6 +30,14 @@ class Admin extends Authenticatable
             return $this->image->image;
         } else {
             return 'a1.jpg';
+        }
+    }
+
+    public function getRole(){
+        if(count($this->roles) > 0){
+            return $this->roles[0]->name;
+        } else {
+            return null;
         }
     }
 }

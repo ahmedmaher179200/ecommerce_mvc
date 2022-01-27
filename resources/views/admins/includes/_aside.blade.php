@@ -14,7 +14,10 @@
 
         <ul class="sidebar-menu" data-widget="tree">
             <li class="active">
-                <a href="#"><i class="fa fa-users"></i><span>dashboard</span></a>
+                <a href="{{url('admins')}}"><i class="fa fa-users"></i><span>dashboard</span></a>
+            </li>
+            <li class="">
+                <a href="{{url('admins/admins')}}"><i class="fa fa-users"></i><span>admins</span></a>
             </li>
         </ul>
 

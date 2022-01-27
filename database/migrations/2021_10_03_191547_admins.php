@@ -15,7 +15,7 @@ class Admins extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->nullable();
+            $table->string('username')->nullable()->unique();
             $table->string('password')->nullable();
             $table->string('email')->nullable()->unique();
             $table->string('image')->nullable();

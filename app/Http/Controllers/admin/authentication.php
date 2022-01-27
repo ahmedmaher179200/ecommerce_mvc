@@ -32,18 +32,4 @@ class authentication extends Controller
 
         return redirect('admins/login');
     }
-
-    public function signUpView(){
-        return view('admins.signUp');
-    }
-
-    public function signUp(signUpRequest $Request){
-        Admin::create([
-            'username'      => $Request->username,
-            'email'         => $Request->email,
-            'password'      => Hash::make($Request->password),
-        ]);
-
-        return redirect('admins/login')->with('success', 'sign up success');
-    }
 }

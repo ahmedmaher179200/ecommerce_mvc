@@ -15,7 +15,7 @@ class venders extends Migration
     {
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
-            $table->string('fullName')->nullable();
+            $table->string('fullName')->nullable()->unique();
             $table->string('password')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable()->unique();

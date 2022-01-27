@@ -11,12 +11,6 @@ class home extends Controller
 {
     public function index(){
         $admin = auth('admin')->user();
-
-        if($admin->isAbleTo('delete-admins')){
-            return 'good';
-        } else {
-            return 'false';
-        }
         return view('admins.home');
     }
 }
