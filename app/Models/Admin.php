@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class Admin extends Authenticatable
 {
     use HasFactory;
     use Notifiable;
+    use LaratrustUserTrait;
+
     protected $table = 'admins';
 
     protected $guarded = [];
