@@ -29,20 +29,71 @@
                 <div class="box-body">
 
                     {{-- @include('admins.partials._errors') --}}
-                    <form action="#" method="post" enctype="multipart/form-data">
-
-                        {{ method_field('patch') }}
-
-                        @include('dashboard.users.form')
-
-                <div class="row" style="margin: 0 !important;">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>
-                                user edit</button>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row" style="margin: 0 !important;">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>username</label>
+                                <input type="username" class="form-control  @error('username') is-invalid @enderror" name="username"
+                                    placeholder="username" value="{{ $admin->username }}" required autocomplete="off">
+                                @error('username')
+                                    <small class=" text text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </small>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>email</label>
+                                <input type="email" class="form-control  @error('email') is-invalid @enderror" name="email"
+                                placeholder="email" value="{{ $admin->email  }}" required autocomplete="off">
+                                @error('email')
+                                    <small class=" text text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </small>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>password</label>
+                                <input type="password" placeholder="password" class="form-control  @error('password') is-invalid @enderror" name="password" value="">
+                                @error('password')
+                                    <small class=" text text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </small>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>role</label>
+                                <select name="role_id">
+                                    @foreach ($roles as $role)
+                                        <option value="{{$role->id}}" @if ($role->id == $admin->getRoleId()) selected @endif>{{$role->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('role')
+                                    <small class=" text text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </small>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 0 !important;">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i>
+                                        add</button>
+                                </div>
+                            </div>
+                        </div>
 
                     </form> {{-- end of form --}}
 

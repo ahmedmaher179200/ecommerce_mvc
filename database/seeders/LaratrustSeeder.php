@@ -33,10 +33,10 @@ class LaratrustSeeder extends Seeder
                 'description'   => 'create new' .$rol,
             ]);
 
-            $edit = Permission::create([
-                'name'          => 'edit-' . $rol,
-                'display_name'  => 'edit ' . $rol,
-                'description'   => 'edit ' . $rol,
+            $read = Permission::create([
+                'name'          => 'read-' . $rol,
+                'display_name'  => 'read ' . $rol,
+                'description'   => 'read ' . $rol,
             ]);
 
             $update = Permission::create([
@@ -52,7 +52,7 @@ class LaratrustSeeder extends Seeder
             ]);
 
             //add to permission_role
-            $super_admin->attachPermissions([$create, $edit, $update, $delete]);
+            $super_admin->attachPermissions([$create, $read, $update, $delete]);
         }
     }
 }

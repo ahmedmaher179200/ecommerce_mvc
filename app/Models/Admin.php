@@ -40,4 +40,12 @@ class Admin extends Authenticatable
             return null;
         }
     }
+
+    public function getRoleId(){
+        if(count($this->roles) > 0){
+            return $this->roles[0]->id;
+        } else {
+            return null;
+        }
+    }
 }

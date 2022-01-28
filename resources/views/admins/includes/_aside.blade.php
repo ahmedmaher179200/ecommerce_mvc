@@ -16,9 +16,11 @@
             <li class="active">
                 <a href="{{url('admins')}}"><i class="fa fa-users"></i><span>dashboard</span></a>
             </li>
-            <li class="">
-                <a href="{{url('admins/admins')}}"><i class="fa fa-users"></i><span>admins</span></a>
-            </li>
+            @if (auth('admin')->user()->isAbleTo('read-admins'))
+                <li class="">
+                    <a href="{{url('admins/admins')}}"><i class="fa fa-users"></i><span>admins</span></a>
+                </li>
+            @endif
         </ul>
 
     </section>
