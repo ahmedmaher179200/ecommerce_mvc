@@ -33,6 +33,12 @@ Route::group(
             Route::get('/edit/{id}', 'App\Http\Controllers\admin\users@editView')->middleware('auth:admin');
             Route::post('/edit/{id}', 'App\Http\Controllers\admin\users@edit')->middleware('auth:admin');
         });
+
+        Route::group(['prefix' => 'products'],function(){
+            Route::get('/', 'App\Http\Controllers\admin\products@index')->middleware('auth:admin');
+            Route::get('/delete/{id}', 'App\Http\Controllers\admin\products@delete')->middleware('auth:admin');
+            Route::get('/changeStatus/{id}', 'App\Http\Controllers\admin\products@changeStatus')->middleware('auth:admin');
+        });
     });
 });
 
