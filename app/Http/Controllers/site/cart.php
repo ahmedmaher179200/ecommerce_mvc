@@ -39,7 +39,7 @@ class cart extends Controller
             'price'     => $product->price,
             'discount'  => [
                                 'percentage'  => $product->discound,
-                                'value'       => $this->percentFromNumber($product->price, $product->discound),
+                                'value'       => $this->percentage($product->price, $product->discound),
                         ],
             'name'      => $product->name,
             'iamge'     => $product->images[0]->image,
@@ -142,7 +142,7 @@ class cart extends Controller
 
                                     <span class="header-cart-item-info">
                                         <span class="quantity-' . $request->product_id . '">'
-                                            .  $request->quantity . 'x' . ($product->price - $this->percentFromNumber($product->price, $product->discound)) . 
+                                            .  $request->quantity . 'x' . ($product->price - $this->percentage($product->price, $product->discound)) . 
                                         '</span>
                                     </span>
                                 </div>

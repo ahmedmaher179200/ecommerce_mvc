@@ -43,6 +43,12 @@ Route::group(
             Route::get('/', 'App\Http\Controllers\admin\reviews@index')->middleware('auth:admin');
             Route::get('/delete/{id}', 'App\Http\Controllers\admin\reviews@delete')->middleware('auth:admin');
         });
+
+        Route::group(['prefix' => 'orders'],function(){
+            Route::get('/', 'App\Http\Controllers\admin\orders@index')->middleware('auth:admin');
+            Route::get('/cancel/{id}', 'App\Http\Controllers\admin\orders@cancel')->middleware('auth:admin');
+            Route::get('/nextStage/{id}', 'App\Http\Controllers\admin\orders@nextStage')->middleware('auth:admin');
+        });
     });
 });
 

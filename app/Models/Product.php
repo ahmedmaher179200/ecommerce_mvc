@@ -72,7 +72,7 @@ class Product extends Model
     }
 
     public function getPriceAfterDiscound(){
-        return $this->price - Controller::percentFromNumber($this->price, $this->discound);
+        return $this->price - Controller::percentage($this->price, $this->discound);
     }
 
     public function getImage()

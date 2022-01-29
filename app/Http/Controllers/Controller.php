@@ -13,7 +13,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function percentFromNumber($number, $percent){
+    public function percentage($number, $percent){
         return ($number / 100) * $percent;
     }
 

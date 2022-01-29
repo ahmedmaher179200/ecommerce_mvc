@@ -70,6 +70,7 @@
                                         <td>{{$admin->email}}</td>
                                         <td>{{$admin->getRole()}}</td>
                                         <td>
+                                            {{-- edit --}}
                                             @if (auth('admin')->user()->isAbleTo('update-admins'))
                                                 <a href="{{url('admins/admins/edit/' . $admin->id)}}" style="color: #fff;
                                                     background-color: #17a2b8;
@@ -83,6 +84,7 @@
                                                 </button>
                                             @endif
 
+                                            {{-- delete --}}
                                             @if (auth('admin')->user()->isAbleTo('delete-admins'))
                                                 <a href="{{url('admins/admins/delete/' . $admin->id)}}" tyle="color:#fff!important;" rel="tooltip" title="" class="btn btn-danger  btn-sm">
                                                     <i class="fa fa-1x fa-trash">delete</i>
