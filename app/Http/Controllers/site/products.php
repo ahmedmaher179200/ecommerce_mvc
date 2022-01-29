@@ -119,7 +119,7 @@ class products extends Controller
 
         $code = '<div class="flex-w flex-t p-b-68">
                     <div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
-                        <img src="' . url('public/uploads/users/' . $review->User->image->image). '" alt="AVATAR">
+                        <img src="' . url('public/uploads/users/' . $review->User->getImage()). '" alt="AVATAR">
                     </div>
 
                     <div class="size-207">

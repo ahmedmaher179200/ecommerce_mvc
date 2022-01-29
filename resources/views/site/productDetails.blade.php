@@ -202,7 +202,7 @@
 											@foreach ($reviews as $review)
 												<div class="flex-w flex-t p-b-68">
 													<div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
-														<img src="{{url('public/uploads/users/' . $review->User->image->image)}}" alt="AVATAR">
+														<img src="{{url('public/uploads/users/' . $review->User->getImage())}}" alt="AVATAR">
 													</div>
 
 													<div class="size-207">
@@ -263,7 +263,7 @@
 													</div>
 												</div>
 												
-												<div class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10 ajax_addReview" data-product_id="{{$product->id}}">
+												<div class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10 ajax_addReview" style="cursor: pointer;" data-product_id="{{$product->id}}">
 													add
 												</div>
 											</form>

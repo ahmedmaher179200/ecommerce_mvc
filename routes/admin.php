@@ -39,6 +39,10 @@ Route::group(
             Route::get('/delete/{id}', 'App\Http\Controllers\admin\products@delete')->middleware('auth:admin');
             Route::get('/changeStatus/{id}', 'App\Http\Controllers\admin\products@changeStatus')->middleware('auth:admin');
         });
+        Route::group(['prefix' => 'reviews'],function(){
+            Route::get('/', 'App\Http\Controllers\admin\reviews@index')->middleware('auth:admin');
+            Route::get('/delete/{id}', 'App\Http\Controllers\admin\reviews@delete')->middleware('auth:admin');
+        });
     });
 });
 

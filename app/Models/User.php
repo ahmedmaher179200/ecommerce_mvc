@@ -94,6 +94,15 @@ class User extends Authenticatable
         return $this->status == 1 ? 'blocked': 'active';
     }
 
+    public function getImage()
+    {
+        if($this->image != null){
+            return $this->image->image;
+        } else {
+            return 'a1.png';
+        }
+    }
+
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
      *
