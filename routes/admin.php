@@ -44,6 +44,7 @@ Route::group(
             Route::get('/delete/{id}', 'App\Http\Controllers\admin\products@delete')->middleware('auth:admin');
             Route::get('/changeStatus/{id}', 'App\Http\Controllers\admin\products@changeStatus')->middleware('auth:admin');
         });
+
         Route::group(['prefix' => 'reviews'],function(){
             Route::get('/', 'App\Http\Controllers\admin\reviews@index')->middleware('auth:admin');
             Route::get('/delete/{id}', 'App\Http\Controllers\admin\reviews@delete')->middleware('auth:admin');
@@ -53,6 +54,13 @@ Route::group(
             Route::get('/', 'App\Http\Controllers\admin\orders@index')->middleware('auth:admin');
             Route::get('/cancel/{id}', 'App\Http\Controllers\admin\orders@cancel')->middleware('auth:admin');
             Route::get('/nextStage/{id}', 'App\Http\Controllers\admin\orders@nextStage')->middleware('auth:admin');
+        });
+
+        Route::group(['prefix' => 'promocodes'],function(){
+            Route::get('/', 'App\Http\Controllers\admin\promoCodes@index')->middleware('auth:admin');
+            Route::get('/create', 'App\Http\Controllers\admin\promoCodes@createView')->middleware('auth:admin');
+            Route::post('/create', 'App\Http\Controllers\admin\promoCodes@create')->middleware('auth:admin');
+            Route::get('/expiry/{id}', 'App\Http\Controllers\admin\promoCodes@expiry')->middleware('auth:admin');
         });
     });
 });

@@ -41,6 +41,11 @@
                     <a href="{{url('admins/reviews')}}"><i class="fa fa-users"></i><span>reviews</span></a>
                 </li>
             @endif
+            @if (auth('admin')->user()->isAbleTo('read-promocodes'))
+                <li class="">
+                    <a href="{{url('admins/promocodes')}}"><i class="fa fa-users"></i><span>promo codes</span></a>
+                </li>
+            @endif
         </ul>
     </section>
 
