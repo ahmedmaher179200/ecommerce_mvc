@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'dashbourd')
+
 @section('content')
 
     <div class="content-wrapper" style="min-height: 0">
@@ -31,6 +33,7 @@
                             <a href="#" class="small-box-footer">read<i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+
 
             </div><!-- end of row -->
         </section><!-- end of content -->

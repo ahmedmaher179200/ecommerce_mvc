@@ -65,4 +65,13 @@ class viewsController extends Controller
         return view('site.cart');
     }
 
+    public function about(){
+        return view('site.about');
+    }
+
+    public function contact(){
+        return view('site.contact');
+    }
+    
+
 }
