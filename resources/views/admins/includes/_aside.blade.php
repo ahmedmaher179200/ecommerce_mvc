@@ -21,6 +21,11 @@
                     <a href="{{url('admins/admins')}}"><i class="fa fa-users"></i><span>admins</span></a>
                 </li>
             @endif
+            @if (auth('admin')->user()->isAbleTo('read-users'))
+                <li class="">
+                    <a href="{{url('admins/users')}}"><i class="fa fa-users"></i><span>users</span></a>
+                </li>
+            @endif
             @if (auth('admin')->user()->isAbleTo('read-products'))
                 <li class="">
                     <a href="{{url('admins/products')}}"><i class="fa fa-users"></i><span>products</span></a>

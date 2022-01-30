@@ -26,12 +26,17 @@ Route::group(
         Route::get('/logout', 'App\Http\Controllers\admin\authentication@logout')->middleware('auth:admin');
 
         Route::group(['prefix' => 'admins'],function(){
+            Route::get('/', 'App\Http\Controllers\admin\admins@index')->middleware('auth:admin');
+            Route::get('/delete/{id}', 'App\Http\Controllers\admin\admins@delete')->middleware('auth:admin');
+            Route::get('/create', 'App\Http\Controllers\admin\admins@createView')->middleware('auth:admin');
+            Route::post('/create', 'App\Http\Controllers\admin\admins@create')->middleware('auth:admin');
+            Route::get('/edit/{id}', 'App\Http\Controllers\admin\admins@editView')->middleware('auth:admin');
+            Route::post('/edit/{id}', 'App\Http\Controllers\admin\admins@edit')->middleware('auth:admin');
+        });
+
+        Route::group(['prefix' => 'users'],function(){
             Route::get('/', 'App\Http\Controllers\admin\users@index')->middleware('auth:admin');
-            Route::get('/delete/{id}', 'App\Http\Controllers\admin\users@delete')->middleware('auth:admin');
-            Route::get('/create', 'App\Http\Controllers\admin\users@createView')->middleware('auth:admin');
-            Route::post('/create', 'App\Http\Controllers\admin\users@create')->middleware('auth:admin');
-            Route::get('/edit/{id}', 'App\Http\Controllers\admin\users@editView')->middleware('auth:admin');
-            Route::post('/edit/{id}', 'App\Http\Controllers\admin\users@edit')->middleware('auth:admin');
+            Route::get('/block/{id}', 'App\Http\Controllers\admin\users@block')->middleware('auth:admin');
         });
 
         Route::group(['prefix' => 'products'],function(){
