@@ -26,6 +26,7 @@ Route::group(
         Route::get('/shop', 'App\Http\Controllers\site\viewsController@shop');
         Route::get('/about', 'App\Http\Controllers\site\viewsController@about');
         Route::get('/contact', 'App\Http\Controllers\site\viewsController@contact');
+        Route::post('/sendMail', 'App\Http\Controllers\site\viewsController@sendMail');
 
         Route::get('/login', 'App\Http\Controllers\site\authentication\auth@loginView')->name('login')->middleware('guest:web');
         Route::post('/login', 'App\Http\Controllers\site\authentication\auth@login')->middleware('guest:web');

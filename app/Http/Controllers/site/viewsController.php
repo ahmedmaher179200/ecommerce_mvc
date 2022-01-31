@@ -4,10 +4,12 @@ namespace App\Http\Controllers\site;
 
 use App\Events\vendor_notification;
 use App\Http\Controllers\Controller;
+use App\Mail\contact;
 use App\Models\Love;
 use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class viewsController extends Controller
@@ -71,6 +73,11 @@ class viewsController extends Controller
 
     public function contact(){
         return view('site.contact');
+    }
+
+    public function sendMail(Request $request){
+        Mail::to($request->email)->send(new contact($request));
+        return redirect()->back();
     }
     
 
