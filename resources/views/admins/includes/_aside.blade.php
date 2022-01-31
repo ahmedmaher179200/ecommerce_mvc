@@ -21,26 +21,31 @@
                     <a href="{{url('admins/admins')}}"><i class="fa fa-users"></i><span>admins</span></a>
                 </li>
             @endif
+
             @if (auth('admin')->user()->isAbleTo('read-users'))
                 <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/users')? 'active':''}}">
                     <a href="{{url('admins/users')}}"><i class="fa fa-users"></i><span>users</span></a>
                 </li>
             @endif
+
             @if (auth('admin')->user()->isAbleTo('read-products'))
                 <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/products')? 'active':''}}">
                     <a href="{{url('admins/products')}}"><i class="fa fa-users"></i><span>products</span></a>
                 </li>
             @endif
+
             @if (auth('admin')->user()->isAbleTo('read-orders'))
                 <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/orders')? 'active':''}}">
                     <a href="{{url('admins/orders')}}"><i class="fa fa-users"></i><span>orders</span></a>
                 </li>
             @endif
+
             @if (auth('admin')->user()->isAbleTo('read-reviews'))
                 <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/reviews')? 'active':''}}">
                     <a href="{{url('admins/reviews')}}"><i class="fa fa-users"></i><span>reviews</span></a>
                 </li>
             @endif
+            
             @if (auth('admin')->user()->isAbleTo('read-promocodes'))
                 <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/promocodes')? 'active':''}}">
                     <a href="{{url('admins/promocodes')}}"><i class="fa fa-users"></i><span>promo codes</span></a>
