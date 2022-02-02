@@ -28,6 +28,18 @@
                 </li>
             @endif
 
+            @if (auth('admin')->user()->isAbleTo('read-categories'))
+                <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/main_categories')? 'active':''}}">
+                    <a href="{{url('admins/main_categories')}}"><i class="fa fa-users"></i><span>main categories</span></a>
+                </li>
+            @endif
+
+            @if (auth('admin')->user()->isAbleTo('read-categories'))
+                <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/sub_categories')? 'active':''}}">
+                    <a href="{{url('admins/sub_categories')}}"><i class="fa fa-users"></i><span>sub categories</span></a>
+                </li>
+            @endif
+
             @if (auth('admin')->user()->isAbleTo('read-users'))
                 <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/users')? 'active':''}}">
                     <a href="{{url('admins/users')}}"><i class="fa fa-users"></i><span>users</span></a>

@@ -24,6 +24,10 @@ class Main_category extends Model
         return $this->hasMany(Sub_category::class, 'main_cate_id');
     }
 
+    public function Main_category_childs(){
+        return $this->hasMany(Main_category::class, 'parent');
+    }
+
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');

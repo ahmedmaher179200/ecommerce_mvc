@@ -43,6 +43,15 @@ Route::group(
             Route::post('/edit/{id}', 'App\Http\Controllers\admin\roles@edit')->middleware('auth:admin');
         });
 
+        Route::group(['prefix' => 'main_categories'],function(){
+            Route::get('/', 'App\Http\Controllers\admin\main_categories@index')->middleware('auth:admin');
+            Route::get('/delete/{id}', 'App\Http\Controllers\admin\main_categories@delete')->middleware('auth:admin');
+            Route::get('/create', 'App\Http\Controllers\admin\main_categories@createView')->middleware('auth:admin');
+            Route::post('/create', 'App\Http\Controllers\admin\main_categories@create')->middleware('auth:admin');
+            Route::get('/edit/{id}', 'App\Http\Controllers\admin\main_categories@editView')->middleware('auth:admin');
+            Route::post('/edit/{id}', 'App\Http\Controllers\admin\main_categories@edit')->middleware('auth:admin');
+        });
+
         Route::group(['prefix' => 'users'],function(){
             Route::get('/', 'App\Http\Controllers\admin\users@index')->middleware('auth:admin');
             Route::get('/block/{id}', 'App\Http\Controllers\admin\users@block')->middleware('auth:admin');
