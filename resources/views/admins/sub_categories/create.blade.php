@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', "main categories-add")
+@section('title', "sub categories-add")
 
 
 @section('content')
@@ -13,7 +13,7 @@
 
             <ol class="breadcrumb">
                 <li> <a href="#"><i class="fa fa-dashboard"></i>dashboard</a></li>
-                <li> <a href="#"><i class="fa fa-users"></i>main categories</a></li>
+                <li> <a href="#"><i class="fa fa-users"></i>sub categories</a></li>
                 <li class="active"><i class="fa fa-plus"></i>add</li>
             </ol>
         </section>
@@ -32,30 +32,50 @@
                     <form class="form" action="" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-body">
-                            <h4 class="form-section"><i class="ft-user"></i>Add Main Categories</h4>
-    
+                            <h4 class="form-section"><i class="ft-user"></i>Add sub Categories</h4>
+                            {{-- image --}}
                             <label for="projectinput1">categories image</label>
                             <br>
-                            <input name="image" type="file">
+                            <input name="image" type="file" required>
                             @error('image')
                                 <span style="color: red;">{{$message}}</span>
                             @enderror
                             <br>
                             <br>
+
+                            {{-- main category --}}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="projectinput1">main category</label>
+                                        <select  name="main_category" class="form-control">
+                                            @foreach ($main_categories as $main_category)
+                                                <option value="{{$main_category->id}}">{{$main_category->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('main_category')
+                                            <span style="color: red;">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            {{-- name --}}
                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                             <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="projectinput1">name in {{$properties['native']}}</label>
-                                            <input type="text" class="form-control" name="main_cate[{{$localeCode}}][name]" value="{{ old('main_cate.'.$localeCode.'.name') }}" autocomplete="off">
-                                            @error('main_cate.' . $localeCode . '.name')
-                                                <span style="color: red;">{{$message}}</span>
-                                            @enderror
-                                        </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="projectinput1">name in {{$properties['native']}}</label>
+                                        <input type="text" class="form-control" name="sub_cate[{{$localeCode}}][name]" value="{{ old('sub_cate.'.$localeCode.'.name') }}" autocomplete="off">
+                                        @error('sub_cate.' . $localeCode . '.name')
+                                            <span style="color: red;">{{$message}}</span>
+                                        @enderror
                                     </div>
-    
-                                    <input type="text" name="main_cate[{{$localeCode}}][translation_lang]" class="hidden" value="{{$localeCode}}" autocomplete="off">
                                 </div>
+
+                                <input type="text" name="sub_cate[{{$localeCode}}][translation_lang]" class="hidden" value="{{$localeCode}}" autocomplete="off">
+                            </div>
                             @endforeach
                             <div class="col-md-12">
                                 <div class="form-group">

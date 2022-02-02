@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\admin\main_cate;
+namespace App\Http\Requests\admin\sub_cate;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,8 +24,9 @@ class add extends FormRequest
     public function rules()
     {
         return [
-            'main_cate.*.name' => 'required|string|min:2',
-            'image'            => 'required|mimes:png,jpg,jpeg',
+            'sub_cate.*.name'   => 'required|string|min:2',
+            'main_category'     => 'required|exists:main_categories,id',
+            'image'             => 'required|mimes:png,jpg,jpeg',
         ];
     }
 }

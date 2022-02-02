@@ -25,7 +25,7 @@ class addProduct extends FormRequest
     {
         return [
             'name'                  => 'required|string',
-            'describe'           => 'required|string',
+            'describe'              => 'required|string',
             'price'                 => 'required|integer',
             'sub_CategoriesId'      => 'required|exists:sub_categories,id',
             'images'                => 'required_without:noImage',

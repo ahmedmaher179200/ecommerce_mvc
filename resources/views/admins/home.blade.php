@@ -119,7 +119,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>{{count(App\Models\Main_category::get())}}</h3>
+                            <h3>{{count(App\Models\Main_category::where('parent', 0)->get())}}</h3>
 
                             <p>Main category</p>
                         </div>
@@ -135,7 +135,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>{{count(App\Models\Sub_category::get())}}</h3>
+                            <h3>{{count(App\Models\Sub_category::where('parent', 0)->get())}}</h3>
 
                             <p>Sub category</p>
                         </div>
