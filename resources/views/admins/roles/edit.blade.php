@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'admins-edit')
+@section('title', 'roles-edit')
 
 
 @section('content')
@@ -32,12 +32,13 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row" style="margin: 0 !important;">
+                        
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>username</label>
-                                <input type="username" class="form-control  @error('username') is-invalid @enderror" name="username"
-                                    placeholder="username" value="{{ $admin->username }}" required autocomplete="off">
-                                @error('username')
+                                <label>name</label>
+                                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name"
+                                    placeholder="name" value="{{ $role->name }}" required autocomplete="off">
+                                @error('name')
                                     <small class=" text text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </small>
@@ -47,44 +48,45 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>email</label>
-                                <input type="email" class="form-control  @error('email') is-invalid @enderror" name="email"
-                                placeholder="email" value="{{ $admin->email  }}" required autocomplete="off">
-                                @error('email')
+                                <label>description</label>
+                                <input type="text" class="form-control  @error('description') is-invalid @enderror" name="description"
+                                placeholder="description" value="{{ $role->description }}" required autocomplete="off">
+                                @error('description')
                                     <small class=" text text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </small>
                                 @enderror
                             </div>
                         </div>
+                        
+                        @php
+                        $models = [
+                            "admins",
+                            "roles",
+                            "users",
+                            "categories",
+                            "products" ,
+                            "reviews",
+                            "orders",
+                            "promocodes",
+                        ];
+                        $maps = ['read', 'create', 'update', 'delete'];
+                        @endphp
 
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>password</label>
-                                <input type="password" placeholder="password" class="form-control  @error('password') is-invalid @enderror" name="password" value="">
-                                @error('password')
-                                    <small class=" text text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </small>
-                                @enderror
+                        @foreach ($models as $model)
+                            <div class="list-group col-md-3" style="padding-left: 15px !important;">
+                                <a href="#" class="list-group-item active">
+                                    {{$model}}
+                                </a>
+                                {{-- --}}
+                                @foreach ($maps as $map)
+                                    <label>
+                                        <input type="checkbox" name="permissions[]" value="{{$map . '-' . $model}}" {{$role->hasPermission($map . '-' . $model) ? 'checked' : ''}}>{{$map}}
+                                    </label>
+                                    <hr>
+                                @endforeach
                             </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>role</label>
-                                <select name="role_id">
-                                    @foreach ($roles as $role)
-                                        <option value="{{$role->id}}" @if ($role->id == $admin->getRoleId()) selected @endif>{{$role->name}}</option>
-                                    @endforeach
-                                </select>
-                                @error('role')
-                                    <small class=" text text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </small>
-                                @enderror
-                            </div>
-                        </div>
+                        @endforeach
 
                         <div class="row" style="margin: 0 !important;">
                             <div class="col-md-12">

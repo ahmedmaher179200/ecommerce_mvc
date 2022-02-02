@@ -16,7 +16,7 @@ class LaratrustSeeder extends Seeder
     public function run()
     {
         //role seeder
-        $super_admin = Role::create([
+        $role = Role::create([
             'name'          => 'super_admin',
             'display_name'  => 'super admin',
             'description'   => 'can do any thing',
@@ -52,7 +52,7 @@ class LaratrustSeeder extends Seeder
             ]);
 
             //add to permission_role
-            $super_admin->attachPermissions([$create, $read, $update, $delete]);
+            $role->attachPermissions([$create, $read, $update, $delete]);
         }
     }
 }

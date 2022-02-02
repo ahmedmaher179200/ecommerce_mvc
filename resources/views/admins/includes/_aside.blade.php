@@ -22,6 +22,12 @@
                 </li>
             @endif
 
+            @if (auth('admin')->user()->isAbleTo('read-roles'))
+                <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/roles')? 'active':''}}">
+                    <a href="{{url('admins/roles')}}"><i class="fa fa-users"></i><span>roles</span></a>
+                </li>
+            @endif
+
             @if (auth('admin')->user()->isAbleTo('read-users'))
                 <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/users')? 'active':''}}">
                     <a href="{{url('admins/users')}}"><i class="fa fa-users"></i><span>users</span></a>

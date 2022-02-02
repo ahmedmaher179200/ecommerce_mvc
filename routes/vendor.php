@@ -38,7 +38,7 @@ Route::group(
             Route::get('/changeStage/{id}', 'App\Http\Controllers\vendor\orders@changeStage');
         });
 
-        //items
+        //products
         Route::group(['prefix'=>'products', 'middleware' => 'auth:vendor'],function(){
             Route::get('/', 'App\Http\Controllers\vendor\products@itemsView');
             Route::get('/addProduct', 'App\Http\Controllers\vendor\products@addProductView');
