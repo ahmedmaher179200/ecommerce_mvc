@@ -46,6 +46,12 @@
                 </li>
             @endif
 
+            @if (auth('admin')->user()->isAbleTo('read-vendors'))
+                <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/vendors')? 'active':''}}">
+                    <a href="{{url('admins/vendors')}}"><i class="fa fa-users"></i><span>vendors</span></a>
+                </li>
+            @endif
+
             @if (auth('admin')->user()->isAbleTo('read-products'))
                 <li class="{{request()->is(LaravelLocalization::getCurrentLocale().'/admins/products')? 'active':''}}">
                     <a href="{{url('admins/products')}}"><i class="fa fa-users"></i><span>products</span></a>

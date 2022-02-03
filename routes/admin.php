@@ -66,6 +66,11 @@ Route::group(
             Route::get('/block/{id}', 'App\Http\Controllers\admin\users@block')->middleware('auth:admin');
         });
 
+        Route::group(['prefix' => 'vendors'],function(){
+            Route::get('/', 'App\Http\Controllers\admin\vendors@index')->middleware('auth:admin');
+            Route::get('/block/{id}', 'App\Http\Controllers\admin\vendors@block')->middleware('auth:admin');
+        });
+
         Route::group(['prefix' => 'products'],function(){
             Route::get('/', 'App\Http\Controllers\admin\products@index')->middleware('auth:admin');
             Route::get('/delete/{id}', 'App\Http\Controllers\admin\products@delete')->middleware('auth:admin');

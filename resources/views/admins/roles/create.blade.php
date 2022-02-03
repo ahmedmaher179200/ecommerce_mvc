@@ -64,6 +64,7 @@
                             "admins",
                             "roles",
                             "users",
+                            "vendors",
                             "categories",
                             "products" ,
                             "reviews",

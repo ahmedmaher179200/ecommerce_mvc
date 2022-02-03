@@ -69,6 +69,22 @@
                 </div>
 
                 <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-black">
+                        <div class="inner">
+                            <h3>{{count(App\Models\Vendor::get())}}</h3>
+
+                            <p>vendors</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        @if (auth()->user()->hasPermission('read-vendors'))
+                            <a href="{{url('admins/vendors')}}" class="small-box-footer">read<i class="fa fa-arrow-circle-right"></i></a>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3>{{count(App\Models\Product::get())}}</h3>
@@ -89,7 +105,7 @@
                         <div class="inner">
                             <h3>{{count(App\Models\Order::get())}}</h3>
 
-                            <p>users</p>
+                            <p>orders</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -105,7 +121,7 @@
                         <div class="inner">
                             <h3>{{count(App\Models\Promo_code::get())}}</h3>
 
-                            <p>users</p>
+                            <p>promo codes</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>

@@ -24,7 +24,7 @@ class LaratrustSeeder extends Seeder
 
 
         //permission
-        $rols = ["admins", "roles", "users", "categories", "products" ,"reviews", "orders", "promocodes"];
+        $rols = ["admins", "roles", "users", "vendors", "categories", "products" ,"reviews", "orders", "promocodes"];
 
         foreach($rols as $rol){
             $create = Permission::create([
