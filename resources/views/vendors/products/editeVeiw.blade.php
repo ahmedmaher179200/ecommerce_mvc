@@ -1,7 +1,6 @@
-<?php 
-    $page = "itemShow";
-?>
 @extends('layouts.vendors')
+
+@section('title', 'product edit')
 
 @section('content')
 <div class="container">
@@ -45,34 +44,6 @@
                         <label for="projectinput1">categories image</label>
                         <br>
                         <div class="row">
-                            <!--images-->
-                            <div class="col-lg-6">
-                                <input name="images[]" type="file" multiple >
-                                @error('images')
-                                    <span style="color: red;">{{$message}}</span>
-                                @enderror
-                            </div>
-                            <br>
-                            <br>
-                            <br>
-
-                            <!--sub cat-->
-                            <div class="col-lg-6">
-                                <label for="projectinput1">sub categories</label>
-                                <select name="sub_CategoriesId" style="width: 300px">
-                                    @foreach (App\models\Sub_category::active()->where('locale', LaravelLocalization::getCurrentLocale())->get() as $sub_cate)                                        
-                                        <option value="{{$sub_cate->parent}}" @if ($sub_cate->parent == $product->sub_categoriesId) selected @endif>{{$sub_cate->Main_categories->name}} => {{$sub_cate->name}}</option>
-                                    @endforeach
-                                </select>
-                                <br>
-                                @error('sub_CategoriesId')
-                                        <span style="color: red;">{{$message}}</span>
-                                @enderror
-                            </div>
-                            <br>
-                            <br>
-                            <br>
-
                             <!--item Name-->
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -139,6 +110,39 @@
                                         <span style="color: red;">{{$message}}</span>
                                     @enderror
                                 </div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+
+                            <!--sub cat-->
+                            <div class="col-lg-6">
+                                <label for="projectinput1">sub categories</label>
+                                <select name="sub_CategoriesId" style="width: 300px" class="form-control">
+                                    @foreach (App\models\Sub_category::active()->where('locale', LaravelLocalization::getCurrentLocale())->get() as $sub_cate)                                        
+                                        <option value="{{$sub_cate->parent}}" @if ($sub_cate->parent == $product->sub_categoriesId) selected @endif>{{$sub_cate->Main_categories->name}} => {{$sub_cate->name}}</option>
+                                    @endforeach
+                                </select>
+                                <br>
+                                @error('sub_CategoriesId')
+                                        <span style="color: red;">{{$message}}</span>
+                                @enderror
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+
+                            <!--images-->
+                            <div class="col-lg-12">
+                                <label for="projectinput1">categories image</label>
+                                <br>
+                                <label for="upload-photo" style="width: 100%; text-align: center;">
+                                    <img src="{{url('public/admin/theme/app-assets/images/upload.webp')}}" style="width: 25%; margin: 30px 0px;">
+                                </label>
+                                <input name="images[]" type="file" id="upload-photo" multiple/>
+                                @error('images')
+                                    <span style="color: red;">{{$message}}</span>
+                                @enderror
                             </div>
                             <br>
                             <br>

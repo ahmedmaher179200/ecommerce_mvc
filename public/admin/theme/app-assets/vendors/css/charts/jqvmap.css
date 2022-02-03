@@ -113,15 +113,15 @@ h4.continent-tab.tab-selected {
 }
 
 .red {
-	background-image: url('../../../images/jvqmap/marker/red.png');
+	background-image: url('../images/jvqmap/marker/red.png');
 }
 
 .blue {
-	background-image: url('../../../images/jvqmap/marker/blue.png');
+	background-image: url('../images/jvqmap/marker/blue.png');
 }
 
 .purple {
-	background-image: url('../../../images/jvqmap/marker/purple.png');
+	background-image: url('../images/jvqmap/marker/purple.png');
 }
 
 /* Setup basic CSS for Label */

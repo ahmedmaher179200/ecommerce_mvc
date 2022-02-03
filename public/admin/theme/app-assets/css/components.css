@@ -3666,9 +3666,3 @@ tr.shown td.details-control {
 
 .pagination.pagination-flat.pagination-sm li.active a {
   padding: 0.5rem 0.7rem; }
-
-.noNotifications {
-    padding: 0px 10px 15px 10px;
-    color: red;
-    text-align: center;
-}

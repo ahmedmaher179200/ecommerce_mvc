@@ -40,7 +40,7 @@ $(window).on("load", function(){
       .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    d3.csv("../../../app-assets/data/d3/pie/pie.csv", type, function(error, data) {
+    d3.csv("../app-assets/data/d3/pie/pie.csv", type, function(error, data) {
       if (error) throw error;
 
         var g = svg.selectAll(".arc")

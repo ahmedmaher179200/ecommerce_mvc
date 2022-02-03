@@ -14,7 +14,7 @@ $(document).ready(function() {
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: '../../../app-assets/jquery-file-upload/server/php/',
+        url: '../app-assets/jquery-file-upload/server/php/',
         // Enable image resizing, except for Android and Opera,
         // which actually support image resizing, but fail to
         // send Blob objects via XHR requests:
@@ -30,7 +30,7 @@ $(document).ready(function() {
         'redirect',
         window.location.href.replace(
             /\/[^\/]*$/,
-            '../../../app-assets/jquery-file-upload/cors/result.html?%s'
+            '../app-assets/jquery-file-upload/cors/result.html?%s'
         )
     );
 

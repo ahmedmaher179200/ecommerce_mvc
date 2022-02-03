@@ -52,7 +52,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.csv("../../../app-assets/data/d3/bar/waterfall.csv", type, function(error, data) {
+    d3.csv("../app-assets/data/d3/bar/waterfall.csv", type, function(error, data) {
         if (error) throw error;
 
         // Transform data (i.e., finding cumulative values and total) for easier charting

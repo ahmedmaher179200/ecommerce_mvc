@@ -74,7 +74,7 @@ $(document).ready(function(){
     // Icon Trigger
     $( ".dp-icon-trigger" ).datepicker({
         showOn: "button",
-        buttonImage: "../../../app-assets/images/jqueryui/calendar.png",
+        buttonImage: "../app-assets/images/jqueryui/calendar.png",
         buttonImageOnly: true,
         buttonText: "Select date"
     });

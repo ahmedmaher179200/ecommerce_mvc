@@ -36619,7 +36619,7 @@ define("tinymce/SelectionOverrides", [
 /**
  * Include the base event class documentation.
  *
- * @include ../../../tools/docs/tinymce.Event.js
+ * @include ../tools/docs/tinymce.Event.js
  */
 
 /**
@@ -36693,7 +36693,7 @@ define("tinymce/Editor", [
 	/**
 	 * Include documentation for all the events.
 	 *
-	 * @include ../../../tools/docs/tinymce.Editor.js
+	 * @include ../tools/docs/tinymce.Editor.js
 	 */
 
 	/**

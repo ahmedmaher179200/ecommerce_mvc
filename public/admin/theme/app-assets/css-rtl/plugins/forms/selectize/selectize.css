@@ -49,7 +49,7 @@
   left: 34px;
   width: 16px;
   height: 16px;
-  background: url(../../../../images/icons/spinner.gif);
+  background: url(../../images/icons/spinner.gif);
   -webkit-background-size: 16px 16px;
           background-size: 16px 16px;
   opacity: 0; }
@@ -112,7 +112,7 @@
   left: 34px;
   width: 16px;
   height: 16px;
-  background: url(../../../../images/icons/spinner.gif);
+  background: url(../../images/icons/spinner.gif);
   -webkit-background-size: 16px 16px;
           background-size: 16px 16px;
   opacity: 0; }

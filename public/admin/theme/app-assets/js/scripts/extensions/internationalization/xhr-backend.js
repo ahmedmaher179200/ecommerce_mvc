@@ -22,7 +22,7 @@ $(document).ready(function(){
             debug: true,
             fallbackLng: false,
             backend: {
-                loadPath: "../../../app-assets/data/locales/{{lng}}/{{ns}}.json",
+                loadPath: "../app-assets/data/locales/{{lng}}/{{ns}}.json",
             },
             returnObjects: true
         },

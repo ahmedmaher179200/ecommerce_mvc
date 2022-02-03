@@ -1,7 +1,6 @@
-<?php 
-    $page = "editeProfileView";
-?>
 @extends('layouts.vendors')
+
+@section('title', 'edit profile')
 
 @section('content')
 <div class="container">

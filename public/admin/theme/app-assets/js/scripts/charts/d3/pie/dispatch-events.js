@@ -25,7 +25,7 @@ $(window).on("load", function(){
         "65 Years and Over"
     ];
 
-    d3.csv("../../../app-assets/data/d3/pie/dispatch-events.csv", type, function(error, states) {
+    d3.csv("../app-assets/data/d3/pie/dispatch-events.csv", type, function(error, states) {
         if (error) throw error;
         var stateById = d3.map();
         states.forEach(function(d) {

@@ -39,7 +39,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.json("../../../app-assets/data/d3/tree/dendrogram.json", function(error, root) {
+    d3.json("../app-assets/data/d3/tree/dendrogram.json", function(error, root) {
 
         var nodes = cluster.nodes(root),
             links = cluster.links(nodes);

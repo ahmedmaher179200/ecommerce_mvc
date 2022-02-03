@@ -9,7 +9,7 @@
 ==========================================================================================*/
 $(document).ready(function(){
 
-	$.fn.raty.defaults.path = '../../../app-assets/images/raty/';
+	$.fn.raty.defaults.path = '../app-assets/images/raty/';
 
 	// Default
 	$('#default-star-rating').raty();

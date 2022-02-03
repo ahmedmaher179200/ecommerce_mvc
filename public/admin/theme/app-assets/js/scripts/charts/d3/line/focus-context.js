@@ -78,7 +78,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.csv("../../../app-assets/data/d3/line/focus-context.csv", type, function(error, data) {
+    d3.csv("../app-assets/data/d3/line/focus-context.csv", type, function(error, data) {
         if (error) throw error;
 
         x.domain(d3.extent(data.map(function(d) { return d.date; })));

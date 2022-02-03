@@ -57,7 +57,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.tsv("../../../app-assets/data/d3/line/line.tsv", type, function(error, data) {
+    d3.tsv("../app-assets/data/d3/line/line.tsv", type, function(error, data) {
         if (error) throw error;
 
         x.domain(d3.extent(data, function(d) { return d.date; }));

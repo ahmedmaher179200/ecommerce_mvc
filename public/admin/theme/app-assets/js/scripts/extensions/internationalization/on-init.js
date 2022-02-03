@@ -23,7 +23,7 @@ $(document).ready(function(){
             lng: 'en',
             fallbackLng: false,
             backend: {
-                loadPath: "../../../app-assets/data/locales/{{lng}}/{{ns}}.json",
+                loadPath: "../app-assets/data/locales/{{lng}}/{{ns}}.json",
             },
             returnObjects: true
         },

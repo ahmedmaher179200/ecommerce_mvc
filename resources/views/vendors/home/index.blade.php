@@ -1,7 +1,6 @@
-<?php 
-    $page = "dashbourd";
-?>
 @extends('layouts.vendors')
+
+@section('title', 'vendors')
 
 @section('content')
     @include('vendors.alerts.success')

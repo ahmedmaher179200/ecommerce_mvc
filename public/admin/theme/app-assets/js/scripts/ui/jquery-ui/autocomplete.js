@@ -340,7 +340,7 @@ $(document).ready(function(){
 
     // Remote Datasource
     $(".ac-remote-datasource").autocomplete({
-        source: "../../../app-assets/data/jquery-ui/search.php",
+        source: "../app-assets/data/jquery-ui/search.php",
         minLength: 2
     });
 
@@ -355,7 +355,7 @@ $(document).ready(function(){
                 return;
             }
 
-            $.getJSON("../../../app-assets/data/jquery-ui/search.php", request, function(data, status, xhr) {
+            $.getJSON("../app-assets/data/jquery-ui/search.php", request, function(data, status, xhr) {
                 cache[term] = data;
                 response(data);
             });
@@ -381,7 +381,7 @@ $(document).ready(function(){
     })
     .autocomplete({
         source: function(request, response) {
-            $.getJSON("../../../app-assets/data/jquery-ui/search.php", {
+            $.getJSON("../app-assets/data/jquery-ui/search.php", {
                 term: extractLast_r(request.term)
             }, response);
         },
@@ -411,7 +411,7 @@ $(document).ready(function(){
 
     // XML Data Pasing
     $.ajax({
-        url: "../../../app-assets/data/jquery-ui/london.xml",
+        url: "../app-assets/data/jquery-ui/london.xml",
         dataType: "xml",
         success: function(xmlResponse) {
             var data = $("geoname", xmlResponse).map(function() {

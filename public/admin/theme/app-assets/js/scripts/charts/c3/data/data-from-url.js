@@ -22,7 +22,7 @@ $(window).on("load", function(){
 
         // Create the data table.
         data: {
-            url: '../../../app-assets/data/c3/c3_test.csv'
+            url: '../app-assets/data/c3/c3_test.csv'
         },
         grid: {
             y: {
@@ -35,7 +35,7 @@ $(window).on("load", function(){
     setTimeout(function () {
         c3.generate({
             data: {
-                url: '../../../app-assets/data/c3/c3_test.json',
+                url: '../app-assets/data/c3/c3_test.json',
                 mimeType: 'json'
             }
         });

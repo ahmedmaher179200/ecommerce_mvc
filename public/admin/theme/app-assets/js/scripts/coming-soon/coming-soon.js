@@ -52,8 +52,8 @@ $(document).ready(function() {
     // var BV = new $.BigVideo({useFlashForFirefox:false});
     // BV.init();
     // BV.show([
-    //     { type: "video/mp4",  src: "../../../app-assets/videos/481479901.mp4" },
-    //     { type: "video/webm", src: "../../../app-assets/videos/481479901.webm" },
-    //     { type: "video/ogg",  src: "../../../app-assets/videos/481479901.ogv" }
+    //     { type: "video/mp4",  src: "../app-assets/videos/481479901.mp4" },
+    //     { type: "video/webm", src: "../app-assets/videos/481479901.webm" },
+    //     { type: "video/ogg",  src: "../app-assets/videos/481479901.ogv" }
     // ]);
 });

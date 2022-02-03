@@ -6,6 +6,8 @@
     </p>
   </footer>
   <!-- BEGIN VENDOR JS-->
+  <script src="{{url('public/admin/theme/app-assets/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
+  <!-- BEGIN VENDOR JS-->
   <!-- BEGIN VENDOR JS-->
   <!-- BEGIN PAGE VENDOR JS-->
   <!-- END PAGE VENDOR JS-->
@@ -13,9 +15,6 @@
   <script src="{{url('public/admin/theme/app-assets/js/core/app-menu.js')}}" type="text/javascript"></script>
   <script src="{{url('public/admin/theme/app-assets/js/core/app.js')}}" type="text/javascript"></script>
   <script src="{{url('public/admin/theme/app-assets/js/scripts/customizer.js')}}" type="text/javascript"></script>
-  <script src="{{url('public/site/js/vendorAjax.js')}}" type="text/javascript"></script>
-
-  
 
   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
   <script>

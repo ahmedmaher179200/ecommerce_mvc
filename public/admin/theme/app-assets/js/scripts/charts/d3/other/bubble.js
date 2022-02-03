@@ -31,7 +31,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.json("../../../app-assets/data/d3/other/flare.json", function(error, root) {
+    d3.json("../app-assets/data/d3/other/flare.json", function(error, root) {
         if (error) throw error;
 
         var node = svg.selectAll(".node")

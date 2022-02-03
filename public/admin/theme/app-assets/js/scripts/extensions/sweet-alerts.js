@@ -47,7 +47,7 @@ $(document).ready(function(){
 	});
 
 	$('#custom-icon').on('click',function(){
-		swal({   title: "Sweet!",   text: "Here's a custom image.",   icon: "../../../app-assets/images/icons/thumbs-up.jpg" });
+		swal({   title: "Sweet!",   text: "Here's a custom image.",   icon: "../app-assets/images/icons/thumbs-up.jpg" });
 	});
 
 	$('#auto-close').on('click',function(){

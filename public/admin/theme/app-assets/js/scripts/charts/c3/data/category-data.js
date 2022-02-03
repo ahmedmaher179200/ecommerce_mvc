@@ -87,7 +87,7 @@ $(window).on("load", function(){
 
     setTimeout(function () {
         categoryData.load({
-            url: '../../../app-assets/data/c3/c3_string_x.csv'
+            url: '../app-assets/data/c3/c3_string_x.csv'
         });
     }, 5000);
 

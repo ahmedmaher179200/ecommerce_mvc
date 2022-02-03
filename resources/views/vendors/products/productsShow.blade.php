@@ -1,7 +1,6 @@
-<?php 
-    $page = "itemShow";
-?>
 @extends('layouts.vendors')
+
+@section('title', 'products')
 
 @section('content')
 <div class="container">

@@ -102,7 +102,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.json("../../../app-assets/data/d3/tree/bracket-tree.json", function(json) {
+    d3.json("../app-assets/data/d3/tree/bracket-tree.json", function(json) {
         root = json;
         root.x0 = height / 2;
         root.y0 = width / 2;

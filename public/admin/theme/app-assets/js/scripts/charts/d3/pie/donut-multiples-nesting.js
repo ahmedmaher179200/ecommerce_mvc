@@ -26,7 +26,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.csv("../../../app-assets/data/d3/pie/flights.csv", function(flights) {
+    d3.csv("../app-assets/data/d3/pie/flights.csv", function(flights) {
 
         // Nest the flight data by originating airport
         var airports = d3.nest()

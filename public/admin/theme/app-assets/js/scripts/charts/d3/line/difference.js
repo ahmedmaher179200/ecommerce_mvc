@@ -63,7 +63,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.tsv("../../../app-assets/data/d3/line/difference.tsv", function(error, data) {
+    d3.tsv("../app-assets/data/d3/line/difference.tsv", function(error, data) {
         if (error) throw error;
 
         data.forEach(function(d) {

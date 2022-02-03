@@ -65,7 +65,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.tsv("../../../app-assets/data/d3/line/line-tension.tsv", type, function(error, data) {
+    d3.tsv("../app-assets/data/d3/line/line-tension.tsv", type, function(error, data) {
         if (error) throw error;
 
         tsvData = data;

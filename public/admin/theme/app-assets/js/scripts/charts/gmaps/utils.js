@@ -375,7 +375,7 @@ $(window).on("load", function(){
     }
   });
 
-  var xhr = $.getJSON('../../../app-assets/data/gmaps/foursquare.json?q[near]=Lima,%20PE&q[query]=Ceviche');
+  var xhr = $.getJSON('../app-assets/data/gmaps/foursquare.json?q[near]=Lima,%20PE&q[query]=Ceviche');
 
   xhr.done(printResults);
   xhr.done(loadResults);

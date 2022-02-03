@@ -41,7 +41,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.json("../../../app-assets/data/d3/other/treemap.json", function(error, root) {
+    d3.json("../app-assets/data/d3/other/treemap.json", function(error, root) {
         if (error) throw error;
 
         var node = div.datum(root).selectAll(".node")

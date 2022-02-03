@@ -56,7 +56,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.csv("../../../app-assets/data/d3/bar/normalized-stacked-bar.csv", function(error, data) {
+    d3.csv("../app-assets/data/d3/bar/normalized-stacked-bar.csv", function(error, data) {
         if (error) throw error;
 
         color.domain(d3.keys(data[0]).filter(function(key) { return key !== "State"; }));

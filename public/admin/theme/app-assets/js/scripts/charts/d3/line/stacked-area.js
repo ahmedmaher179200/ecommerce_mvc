@@ -69,7 +69,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.tsv("../../../app-assets/data/d3/line/stacked-area.tsv", function(error, data) {
+    d3.tsv("../app-assets/data/d3/line/stacked-area.tsv", function(error, data) {
         if (error) throw error;
 
         color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));

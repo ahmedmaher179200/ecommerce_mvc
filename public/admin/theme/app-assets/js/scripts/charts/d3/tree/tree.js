@@ -38,7 +38,7 @@ $(window).on("load", function(){
 
     // Load data
     // ------------------------------
-    d3.json("../../../app-assets/data/d3/tree/tree.json", function(error, json) {
+    d3.json("../app-assets/data/d3/tree/tree.json", function(error, json) {
 
         var nodes = tree.nodes(json),
             links = tree.links(nodes);

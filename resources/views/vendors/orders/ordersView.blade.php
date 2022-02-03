@@ -1,7 +1,6 @@
-<?php 
-    $page = "orderShow";
-?>
 @extends('layouts.vendors')
+
+@section('title', 'orders')
 
 @section('content')
 <div class="container">

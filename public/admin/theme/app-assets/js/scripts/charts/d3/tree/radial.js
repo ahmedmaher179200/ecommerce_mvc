@@ -35,7 +35,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.json("../../../app-assets/data/d3/tree/radial-tree.json", function(error, root) {
+    d3.json("../app-assets/data/d3/tree/radial-tree.json", function(error, root) {
 
         var nodes = tree.nodes(root),
             links = tree.links(nodes);

@@ -41,7 +41,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.json("../../../app-assets/data/d3/tree/collapsible-tree.json", function(error, json) {
+    d3.json("../app-assets/data/d3/tree/collapsible-tree.json", function(error, json) {
 
         root = json;
         root.x0 = height/2;

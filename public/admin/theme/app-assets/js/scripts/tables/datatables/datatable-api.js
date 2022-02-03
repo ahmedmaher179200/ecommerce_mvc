@@ -119,7 +119,7 @@ return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50
 
 
 var tableChildRows = $('.show-child-rows').DataTable( {
-    "ajax": "../../../app-assets/data/datatables/ajax-child-rows.json",
+    "ajax": "../app-assets/data/datatables/ajax-child-rows.json",
     "columns": [
         {
             "className":      'details-control',

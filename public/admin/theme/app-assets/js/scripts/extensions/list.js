@@ -96,7 +96,7 @@ $(document).ready(function(){
 	dataAttrList.add({
 		name: 'Leia',
 		born: '1954',
-		image: '../../../app-assets/images/portrait/small/avatar-s-8.png',
+		image: '../app-assets/images/portrait/small/avatar-s-8.png',
 		link: "https://pixinvent.com",
 		id: 5,
 		timestamp: '67893'

@@ -44,7 +44,7 @@ $(window).on("load", function(){
       .append("g")
         .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
 
-    d3.json("../../../app-assets/data/d3/circle/flare.json", function(error, root) {
+    d3.json("../app-assets/data/d3/circle/flare.json", function(error, root) {
       if (error) throw error;
 
       svg.selectAll("path")

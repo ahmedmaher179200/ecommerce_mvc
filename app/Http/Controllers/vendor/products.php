@@ -23,7 +23,7 @@ class products extends Controller
         //get vendor from session(guard)
         $vendor = auth('vendor')->user();
         
-        if($vendor->email_verified == 1 && $vendor->status == 1){
+        if($vendor->status == 1){
             //add product
             $product = Product::create([
                 'name'                  => $Request->name,
@@ -44,8 +44,6 @@ class products extends Controller
                     'image'          => $image_path,
                 ]);
             }
-            
-
         } else {
             return redirect('vendors/products')->with('error', 'your acount not active' );
         }

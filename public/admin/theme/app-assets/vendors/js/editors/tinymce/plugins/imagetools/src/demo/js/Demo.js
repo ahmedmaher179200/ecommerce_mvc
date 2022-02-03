@@ -17,7 +17,7 @@ define("tinymce/imagetoolsplugin/Demo", [
 	"global!console"
 ], function(Plugin, tinymce, $, console) {
 	return function() {
-		var imgSrc = '../../../../../../../tests/manual/img/dogleft.jpg';
+		var imgSrc = '../../../tests/manual/img/dogleft.jpg';
 
 		$(
 			'<textarea class="tinymce">' +

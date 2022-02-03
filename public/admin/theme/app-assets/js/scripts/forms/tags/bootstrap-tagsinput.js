@@ -87,7 +87,7 @@ $(document).ready(function(){
     var cities1 = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: '../../../app-assets/data/cities.json'
+        prefetch: '../app-assets/data/cities.json'
     });
     cities1.initialize();
 
@@ -118,7 +118,7 @@ $(document).ready(function(){
     var cities2 = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: '../../../app-assets/data/cities.json'
+        prefetch: '../app-assets/data/cities.json'
     });
     cities2.initialize();
 

@@ -255,7 +255,7 @@
 
 .dp-skin .ui-datepicker .ui-datepicker-next span,
 .dp-skin .ui-datepicker .ui-datepicker-prev span {
-  background-image: url(../../../images/jqueryui/ui-icons_ffffff_256x240.png);
+  background-image: url(../images/jqueryui/ui-icons_ffffff_256x240.png);
   background-position: -32px -32px;
   margin-top: 0;
   top: 0;
@@ -358,7 +358,7 @@ select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
     padding: 0; }
 
 .ui-autocomplete-loading {
-  background: white url("../../../images/jqueryui/ui-anim_basic_16x16.gif") left center no-repeat; }
+  background: white url("../images/jqueryui/ui-anim_basic_16x16.gif") left center no-repeat; }
 
 .ui-button:focus, a.ui-button:focus {
   outline: none; }
@@ -823,7 +823,7 @@ a.ui-button-link {
   .ui-dialog .ui-widget-content {
     background: transparent; }
   .ui-dialog.ui-resizable .ui-resizable-handle.ui-icon {
-    background-image: url("../../../images/icons/textarea-expand.png");
+    background-image: url("../images/icons/textarea-expand.png");
     background-repeat: no-repeat;
     background-position: 0% 100%; }
   .ui-dialog.ui-resizable .ui-resizable-se {

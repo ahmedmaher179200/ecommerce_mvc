@@ -61,7 +61,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.tsv("../../../app-assets/data/d3/bar/bar.tsv", type, function(error, data) {
+    d3.tsv("../app-assets/data/d3/bar/bar.tsv", type, function(error, data) {
         if (error) throw error;
 
         x.domain(data.map(function(d) { return d.letter; }));

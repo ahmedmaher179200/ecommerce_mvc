@@ -43,7 +43,7 @@ $(window).on("load", function(){
     // Load data
     // ------------------------------
 
-    d3.json("../../../app-assets/data/d3/other/sankey.json", function(error, energy) {
+    d3.json("../app-assets/data/d3/other/sankey.json", function(error, energy) {
         if (error) throw error;
 
         sankey
