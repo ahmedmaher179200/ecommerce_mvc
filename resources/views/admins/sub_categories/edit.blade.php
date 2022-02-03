@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'main categories-edit')
+@section('title', 'sub categories-edit')
 
 
 @section('content')
@@ -9,11 +9,11 @@
 
         <section class="content-header">
 
-            <h1>main categories edit</h1>
+            <h1>sub categories edit</h1>
 
             <ol class="breadcrumb">
                 <li> <a href="#"><i class="fa fa-dashboard"></i>dashboard</a></li>
-                <li> <a href="#"><i class="fa fa-users"></i>main categories</a></li>
+                <li> <a href="#"><i class="fa fa-users"></i>sub categories</a></li>
                 <li class="active"><i class="fa fa-edit"></i>edit</li>
             </ol>
         </section>
@@ -32,7 +32,7 @@
                     <form class="form" action="" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-body">
-                            <h4 class="form-section"><i class="ft-user"></i>Add Mian_Categories</h4>
+                            <h4 class="form-section"><i class="ft-user"></i>Add sub Categories</h4>
                             {{-- image --}}
                             <label for="projectinput1">categories image</label>
                             <br>
@@ -43,25 +43,43 @@
                             <br>
                             <br>
 
+                            {{-- main category --}}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="projectinput1">main category</label>
+                                        <select  name="main_category" class="form-control">
+                                            @foreach ($main_categories as $main_category)
+                                                <option value="{{$main_category->id}}" @if ($sub_category->main_cate_id == $main_category->id) selected @endif>{{$main_category->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        
+                                        @error('main_category')
+                                            <span style="color: red;">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
                             {{-- name --}}
-                            @foreach($Main_category_childs as $child)
+                            @foreach($sub_category_childs as $child)
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="projectinput1">name in {{$child->locale}}</label>
-                                            <input type="text" class="form-control" name="main_cate[{{$child->locale}}][name]" value="{{ $child->name }}" autocomplete="off">
-                                            @error('main_cate.' . $child->locale . '.name')
+                                            <input type="text" class="form-control" name="sub_cate[{{$child->locale}}][name]" value="{{ $child->name }}" autocomplete="off">
+                                            @error('sub_cate.' . $child->locale . '.name')
                                                 <span style="color: red;">{{$message}}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <input type="text" name="main_cate[{{$child->locale}}][translation_lang]" class="hidden" value="{{$child->locale}}" autocomplete="off">
+                                    <input type="text" name="sub_cate[{{$child->locale}}][translation_lang]" class="hidden" value="{{$child->locale}}" autocomplete="off">
                                 </div>
                             @endforeach
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="checkbox" id="switcherySize" value="1" class="switchery" name="status" data-size="lg" @if ($main_category->status == 1) checked @endif/>
+                                    <input type="checkbox" id="switcherySize" value="1" class="switchery" name="status" data-size="lg" @if ($sub_category->status == 1) checked @endif/>
                                     <label for="switcherySize" class="font-medium-2 text-bold-600 ml-1">status</label>
                                 </div>
                             </div>

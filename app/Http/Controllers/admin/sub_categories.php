@@ -85,57 +85,61 @@ class sub_categories extends Controller
         }
     }
 
-    // public function editView($cate_id){
-    //     $main_category = Main_category::find($cate_id);
+    public function editView($cate_id){
+        $sub_category = Sub_category::find($cate_id);
+        $main_categories = Main_category::where('parent', 0)->get();
 
-    //     //if category not found
-    //     if($main_category == null)
-    //         return view('admins.main_categories.index');
+        //if category not found
+        if($sub_category == null)
+            return view('admins.main_categories.index');
 
-    //     return view('admins.main_categories.edit')->with([
-    //         'main_category'         => $main_category,
-    //         'Main_category_childs'  => $main_category->Main_category_childs,
-    //     ]);    
-    // }
+        return view('admins.sub_categories.edit')->with([
+            'sub_category'         => $sub_category,
+            'sub_category_childs'  => $sub_category->sub_category_childs,
+            'main_categories'      => $main_categories,
+        ]);    
+    }
 
-    // public function edit($id, Request $request){
-    //     try{
-    //         $main_category = Main_category::find($id);
-    //         //if admin change categories image
-    //         if($request->hasFile('image')){
-    //             //delete old image
-    //             if(file_exists(base_path('public/uploads/main_categories/') . $main_category->image->image)){
-    //                 unlink(base_path('public/uploads/main_categories/') . $main_category->image->image);
-    //             }
-    //             $main_category->image->delete();
+    public function edit($id, add $request){
+        try{
+            $sub_category = Sub_category::find($id);
+            //if admin change categories image
+            if($request->hasFile('image')){
+                //delete old image
+                if(file_exists(base_path('public/uploads/sub_categories/') . $sub_category->image->image)){
+                    unlink(base_path('public/uploads/sub_categories/') . $sub_category->image->image);
+                }
+                $sub_category->image->delete();
                 
-    //             //uppoad new image
-    //             $path = $this->upload_image($request->file('image'), 'uploads/main_categories', 480, 594);
-    //             Image::create([
-    //                 'imageable_id'  => $main_category->id,
-    //                 'imageable_type'=> 'App\Models\Main_category',
-    //                 'image'         => $path,
-    //             ]);
-    //         }
+                //uppoad new image
+                $path = $this->upload_image($request->file('image'), 'uploads/sub_categories', 480, 594);
+                Image::create([
+                    'imageable_id'  => $sub_category->id,
+                    'imageable_type'=> 'App\Models\Sub_category',
+                    'image'         => $path,
+                ]);
+            }
 
-    //         //check active
-    //         ($request->status == 1)?$active = 1:$active = 0;
+            //check active
+            ($request->status == 1)?$active = 1:$active = 0;
 
-    //         //change parent
-    //         $main_category->name       = $request->main_cate['en']['name'];
-    //         $main_category->status     = $active;
-    //         $main_category->save();
+            //change parent
+            $sub_category->name         = $request->sub_cate['en']['name'];
+            $sub_category->status       = $active;
+            $sub_category->main_cate_id = $request->main_category;
+            $sub_category->save();
 
-    //         //change main cate in all lang
-    //         foreach($main_category->Main_category_childs as $Main_category_child){
-    //             $Main_category_child->name       = $request->main_cate[$Main_category_child->locale]['name'];
-    //             $Main_category_child->status     = $active;
-    //             $Main_category_child->save();
-    //         }
+            //change main cate in all lang
+            foreach($sub_category->Sub_category_childs as $sub_category_child){
+                $sub_category_child->name           = $request->sub_cate[$sub_category_child->locale]['name'];
+                $sub_category_child->status         = $active;
+                $sub_category_child->main_cate_id   = $request->main_category;
+                $sub_category_child->save();
+            }
 
-    //         return redirect('admins/main_categories')->with('success', 'add main category success');
-    //     } catch(\Exception $ex){
-    //         return redirect('admins/main_categories')->with('error', 'edit category faild');
-    //     }
-    // }
+            return redirect('admins/sub_categories')->with('success', 'add sub category success');
+        } catch(\Exception $ex){
+            return redirect('admins/sub_categories')->with('error', 'edit category faild');
+        }
+    }
 }
