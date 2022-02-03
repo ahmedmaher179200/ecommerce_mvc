@@ -95,7 +95,6 @@
                     visibility: hidden;
                 }
             }
-
         </style>
     @else
         <link rel="stylesheet"
@@ -137,6 +136,17 @@
             100% {
                 transform: rotate(360deg);
             }
+        }
+
+        label {
+            cursor: pointer;
+            /* Style as you please, it will become the visible UI component. */
+        }
+            
+        #upload-photo {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
         }
 
     </style>

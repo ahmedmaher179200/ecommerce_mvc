@@ -43,13 +43,6 @@
                             <div class="form-body">
                                 <h4 class="form-section"><i class="ft-user"></i>Admin</h4>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <input name="image" type="file" style="margin-bottom: 20px;">
-                                        @error('image')
-                                            <span style="color: red;">{{$message}}</span>
-                                        @enderror
-                                    </div>
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="projectinput1">username</label>
@@ -88,6 +81,18 @@
                                                 <span style="color: red;">{{$message}}</span>
                                             @enderror
                                         </div>
+                                    </div>
+                                    {{-- image --}}
+                                    <div class="col-md-12">
+                                        <label for="projectinput1">image</label>
+                                        <br>
+                                        <label for="upload-photo" style="width: 100%; text-align: center;">
+                                            <img src="{{url('public/admin/theme/app-assets/images/upload.webp')}}" style="width: 25%; margin: 30px 0px;">
+                                        </label>
+                                        <input name="image" type="file" style="margin-bottom: 20px;" id="upload-photo"/>
+                                        @error('image')
+                                            <span style="color: red;">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 

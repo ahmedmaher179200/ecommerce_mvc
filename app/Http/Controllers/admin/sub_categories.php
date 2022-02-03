@@ -100,7 +100,7 @@ class sub_categories extends Controller
         ]);    
     }
 
-    public function edit($id, add $request){
+    public function edit($id,Request $request){
         try{
             $sub_category = Sub_category::find($id);
             //if admin change categories image

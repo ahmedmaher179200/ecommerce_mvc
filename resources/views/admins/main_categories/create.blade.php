@@ -32,16 +32,7 @@
                     <form class="form" action="" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-body">
-                            <h4 class="form-section"><i class="ft-user"></i>Add Main Categories</h4>
-    
-                            <label for="projectinput1">categories image</label>
-                            <br>
-                            <input name="image" type="file">
-                            @error('image')
-                                <span style="color: red;">{{$message}}</span>
-                            @enderror
-                            <br>
-                            <br>
+                            {{-- name --}}
                             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                             <div class="row">
                                     <div class="col-md-12">
@@ -57,11 +48,26 @@
                                     <input type="text" name="main_cate[{{$localeCode}}][translation_lang]" class="hidden" value="{{$localeCode}}" autocomplete="off">
                                 </div>
                             @endforeach
+
+                            {{-- status --}}
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <input type="checkbox" id="switcherySize" value="1" class="switchery" name="status" data-size="lg" checked/>
                                     <label for="switcherySize" class="font-medium-2 text-bold-600 ml-1">status</label>
                                 </div>
+                            </div>
+
+                            {{-- iamge --}}
+                            <div class="col-md-12">
+                                <label for="projectinput1">categories image</label>
+                                <br>
+                                <label for="upload-photo" style="width: 100%; text-align: center;">
+                                    <img src="{{url('public/admin/theme/app-assets/images/upload.webp')}}" style="width: 25%; margin: 30px 0px;">
+                                </label>
+                                <input name="image" type="file" id="upload-photo"/>
+                                @error('image')
+                                    <span style="color: red;">{{$message}}</span>
+                                @enderror
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">

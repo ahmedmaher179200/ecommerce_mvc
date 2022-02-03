@@ -23,7 +23,7 @@
             <div class="box box-primary">
 
                 <div class="box-header with-border">
-                    <h1 class="box-title"> @lang('site.edit')</h1>
+                    <h1 class="box-title"> edit</h1>
                 </div> {{-- end of box header --}}
 
                 <div class="box-body">
@@ -70,10 +70,10 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>role</label>
-                                <select name="role_id">
+                                <select name="role_id" class="form-control">
                                     @foreach ($roles as $role)
                                         <option value="{{$role->id}}" @if ($role->id == $admin->getRoleId()) selected @endif>{{$role->name}}</option>
                                     @endforeach
