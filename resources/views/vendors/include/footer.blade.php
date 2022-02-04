@@ -27,7 +27,7 @@
 
     var channel = pusher.subscribe('preder-notification-{{auth('vendor')->user()->id}}');
     channel.bind('preder-notification', function(data) {
-      $('.newNotificationsNumber').html(data['count']);
+      $('.newNotificationsNumberEdit').html(data['count']);
       $(".media-list").prepend(data['notification_html']);
     });
   </script>

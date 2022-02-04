@@ -119,7 +119,7 @@
                             <div class="col-lg-6">
                                 <label for="projectinput1">sub categories</label>
                                 <select name="sub_CategoriesId" style="width: 300px" class="form-control">
-                                    @foreach (App\models\Sub_category::active()->where('locale', LaravelLocalization::getCurrentLocale())->get() as $sub_cate)                                        
+                                    @foreach (App\Models\Sub_category::active()->where('locale', LaravelLocalization::getCurrentLocale())->get() as $sub_cate)                                        
                                         <option value="{{$sub_cate->parent}}" @if ($sub_cate->parent == $product->sub_categoriesId) selected @endif>{{$sub_cate->Main_categories->name}} => {{$sub_cate->name}}</option>
                                     @endforeach
                                 </select>

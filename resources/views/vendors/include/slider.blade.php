@@ -3,7 +3,7 @@
       <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
           <?php 
-            $orders = App\models\Orderdetail::whereHas('Product',function($q){
+            $orders = App\Models\Orderdetail::whereHas('Product',function($q){
               $q->where('vendor_id','=', auth('vendor')->user()->id);
             })->get();
           ?>

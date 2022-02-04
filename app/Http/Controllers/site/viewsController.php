@@ -17,7 +17,7 @@ class viewsController extends Controller
     public function homeView(){
         $products = Product::active()
                                 ->orderBy('number_of_sell', 'desc')
-                                ->limit(10)->get();
+                                ->limit(8)->get();
                                 
         return view('site.home')->with([
             'products' => $products,

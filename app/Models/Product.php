@@ -31,8 +31,8 @@ class Product extends Model
     public function Sub_category(){
         return $this->belongsTo(Sub_category::class,'sub_categoriesId');
     }
-    public function vendor(){
-        return $this->belongsTo(vendor::class,'vendor_id');
+    public function Vendor(){
+        return $this->belongsTo(Vendor::class,'vendor_id');
     }
 
     public function Comments(){
@@ -89,7 +89,7 @@ class Product extends Model
     {
         return $query->where('quantity', '>', 0)
                     ->where('status', 1)
-                    ->whereHas('vendor', function($query){
+                    ->whereHas('Vendor', function($query){
                         $query->where('status', 1);
                     })
                     ->whereHas('Sub_category', function($q){

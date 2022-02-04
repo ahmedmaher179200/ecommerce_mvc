@@ -98,7 +98,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="projectinput1">product describtion</label>
-                                    <textarea type="text" class="form-control" name="describe">{{ old('describtion') }}</textarea>
+                                    <textarea type="text" class="form-control" name="describe">{{ old('describe') }}</textarea>
                                     @error('describe')
                                         <span style="color: red;">{{$message}}</span>
                                     @enderror
@@ -112,7 +112,7 @@
                             <div class="col-lg-6">
                                 <label for="projectinput1">sub categories</label>
                                 <select name="sub_CategoriesId" style="width: 300px" class="form-control">
-                                    @foreach (App\models\Sub_category::active()->where('locale', LaravelLocalization::getCurrentLocale())->get() as $sub_cate)                                        
+                                    @foreach (App\Models\Sub_category::active()->where('locale', LaravelLocalization::getCurrentLocale())->get() as $sub_cate)                                        
                                         <option value="{{$sub_cate->parent}}">{{$sub_cate->Main_categories->name}} => {{$sub_cate->name}}</option>
                                     @endforeach
                                 </select>
