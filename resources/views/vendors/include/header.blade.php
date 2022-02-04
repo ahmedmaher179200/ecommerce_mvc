@@ -214,8 +214,8 @@ data-open="click" data-menu="vertical-menu-modern" data-col="2-columns">
                                                                 ->get();
             ?>
           <li class="dropdown dropdown-notification nav-item">
-            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
-              <span class="badge badge-pill newNotificationsNumber badge-default badge-danger badge-default badge-up badge-glow">{{count($new_notifications)}}</span>
+            <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell newNotificationsNumber"></i>
+              <span class="badge badge-pill newNotificationsNumber newNotificationsNumberEdit badge-default badge-danger badge-default badge-up badge-glow">{{count($new_notifications)}}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
               <li class="dropdown-menu-header">

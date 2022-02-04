@@ -14,7 +14,7 @@
         },
         
         success: function (data) {
-            $('.newNotificationsNumber').html(0);
+            $('.newNotificationsNumberEdit').html(0);
         },
         error: function (data) {
             alert(false);

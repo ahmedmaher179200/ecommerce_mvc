@@ -71,45 +71,42 @@
 						
 						<!--  -->
 						<div class="p-t-33">
-							<div class="flex-w flex-r-m p-b-10">
-								<div class="size-203 flex-c-m respon6">
-									Size
-								</div>
-
-								<div class="size-204 respon6-next">
-									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2 size" name="size">
-											<option value="">Choose an option</option>
-											@if ($product->sizes != NULL)
+							@if ($product->sizes != NULL)
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Size
+									</div>
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2 size" name="size">
 												@foreach ($product->sizes as $size)
 													<option value="{{$size}}">Size {{$size}}</option>
 												@endforeach
-											@endif
-										</select>
-										<div class="dropDownSelect2"></div>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
 									</div>
 								</div>
-							</div>
-
-							<div class="flex-w flex-r-m p-b-10">
-								<div class="size-203 flex-c-m respon6">
-									Color
-								</div>
-
-								<div class="size-204 respon6-next">
-									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2 color" name="color">
-											<option value="">Choose an option</option>
-											@if ($product->colors != NULL)
+							@endif
+							
+							@if ($product->colors != NULL)
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Color
+									</div>
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2 color" name="color">
 												@foreach ($product->colors as $color)
 													<option value="{{$color}}">{{$color}}</option>
 												@endforeach
-											@endif
-										</select>
-										<div class="dropDownSelect2"></div>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
 									</div>
 								</div>
-							</div>
+							@endif
+							
 
 							<div class="flex-w flex-r-m p-b-10">
 								<div class="size-204 flex-w flex-m respon6-next">

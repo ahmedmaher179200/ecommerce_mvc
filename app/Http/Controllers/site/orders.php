@@ -67,7 +67,7 @@ class orders extends Controller
         $vendor_notification = $this->createOrderNotification($product->Vendor->id, 'title', 'content');
 
         //send notificaiton
-        $new_notifications = Vendor_notification::where('vendor_id', auth('vendor')->user()->id)
+        $new_notifications = Vendor_notification::where('vendor_id',$product->Vendor->id)
                                                 ->where('seen', 0)
                                                 ->get();
         $data = [

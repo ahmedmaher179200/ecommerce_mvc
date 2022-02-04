@@ -30,20 +30,20 @@ Route::group(
 
         Route::get('/login', 'App\Http\Controllers\site\authentication\auth@loginView')->name('login')->middleware('guest:web');
         Route::post('/login', 'App\Http\Controllers\site\authentication\auth@login')->middleware('guest:web');
-        Route::get('/signUp', 'App\Http\Controllers\site\authentication\auth@signUpView')->name('login')->middleware('guest:web');
-        Route::post('/signUp', 'App\Http\Controllers\site\authentication\auth@signUp')->name('login')->middleware('guest:web');
+        Route::get('/signUp', 'App\Http\Controllers\site\authentication\auth@signUpView')->middleware('guest:web');
+        Route::post('/signUp', 'App\Http\Controllers\site\authentication\auth@signUp')->middleware('guest:web');
 
         Route::get('/logout', 'App\Http\Controllers\site\authentication\auth@logout')->middleware('auth:web');
 
         Route::post('/love', 'App\Http\Controllers\site\products@love')->middleware('auth:web');
         Route::post('/addReview', 'App\Http\Controllers\site\products@addReview')->middleware('auth:web');
 
-        Route::get('/cart', 'App\Http\Controllers\site\viewsController@cartView');
-        Route::post('/cart/add', 'App\Http\Controllers\site\cart@add');
-        Route::post('/cart/remove', 'App\Http\Controllers\site\cart@remove');
-        Route::post('/cart/increment', 'App\Http\Controllers\site\cart@increment');
-        Route::post('/cart/decrement', 'App\Http\Controllers\site\cart@decrement');
+        Route::get('/cart', 'App\Http\Controllers\site\viewsController@cartView')->middleware('auth:web');
+        Route::post('/cart/add', 'App\Http\Controllers\site\cart@add')->middleware('auth:web');
+        Route::post('/cart/remove', 'App\Http\Controllers\site\cart@remove')->middleware('auth:web');
+        Route::post('/cart/increment', 'App\Http\Controllers\site\cart@increment')->middleware('auth:web');
+        Route::post('/cart/decrement', 'App\Http\Controllers\site\cart@decrement')->middleware('auth:web');
 
-        Route::post('/order/make', 'App\Http\Controllers\site\orders@makeOrder');
+        Route::post('/order/make', 'App\Http\Controllers\site\orders@makeOrder')->middleware('auth:web');
 
     });
